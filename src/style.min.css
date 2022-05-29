@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/*Обнуление*/
+
+
+@font-face {
+  font-family: icons;
+  font-display: swap;
+  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  font-display: swap;
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.ttf") format("ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  font-display: swap;
+  src: url("../fonts/Montserrat-Medium.woff2") format("woff2"), url("../fonts/Montserrat-Medium.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  font-display: swap;
+  src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2"), url("../fonts/Montserrat-SemiBold.ttf") format("ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "icons";
+  font-display: swap;
+  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^=_icon-]:before,
+[class*=_icon-]:before {
+  font-family: "icons";
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+}
+
+[class^=_icon-]:before,
+[class*=_icon-]:before {
+  display: block;
+}
+
+._icon-pencil:before {
+  content: "\e905";
+}
+
+._icon-pencil2:before {
+  content: "\e906";
+}
+
+._icon-file-text:before {
+  content: "\e926";
+}
+
+._icon-mail:before {
+  content: "\e945";
+}
+
+._icon-bubble:before {
+  content: "\e96e";
+}
+
+._icon-users:before {
+  content: "\e972";
+}
+
+._icon-user-check:before {
+  content: "\e975";
+}
+
+._icon-search:before {
+  content: "\e986";
+}
+
+._icon-cog:before {
+  content: "\e994";
+}
+
+._icon-delete:before {
+  content: "\e9ac";
+}
+
+._icon-clipboard:before {
+  content: "\e9b8";
+}
+
+._icon-attachment:before {
+  content: "\e9cd";
+}
+
+._icon-star:before {
+  content: "\e9d7";
+}
+
+._icon-smile:before {
+  content: "\e9e1";
+}
+
+._icon-FAQ:before {
+  content: "\ea09";
+}
+
+._icon-cross:before {
+  content: "\ea0f";
+}
+
+._icon-enter:before {
+  content: "\ea13";
+}
+
+._icon-exit:before {
+  content: "\ea14";
+}
+
+._icon-arrow-right:before {
+  content: "\ea3c";
+}
+
+._icon-arrow-left:before {
+  content: "\ea40";
+}
+
+._icon-arrow-down:before {
+  content: "\e900";
+}
+
+
+
+

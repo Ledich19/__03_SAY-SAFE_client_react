@@ -1,0 +1,9 @@
+import React from 'react'
+
+const Button = ({ onClick, className, text }) => {
+  return (
+    <button type='button' onClick={onClick} className={className}>{text}</button>
+  )
+}
+
+export default Button

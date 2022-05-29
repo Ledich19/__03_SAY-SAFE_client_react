@@ -1,25 +1,74 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import WorkPanel from './components/WorkPanel';
+import Workplace from './components/Workplace';
+import { useState, useEffect } from 'react';
 
-function App() {
+
+
+import axios from 'axios'
+import peopleService from './services/peoples';
+
+axios
+  .get('http://localhost:3001/user')
+  .then(response => {
+  console.log(response)
+})
+
+ axios
+  .get('http://localhost:3001/persons')
+  .then(response => {
+  console.log(response)
+})
+
+
+function App({store}) {
+  
+
+ 
+
+  const user = {
+    notifications: [
+      {
+        name: 'Messages',
+        id: 'qw346',
+        amount: 1,
+      },
+      {
+        name: 'Mail',
+        id: 'rther ',
+        amount: 155,
+      },{
+        name:'Favorite' ,
+        id: 'rethet',
+        amount:0 ,
+      },
+    ]
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   
+    <div className="App work-platform">
+      <Header />
+  <div className="work-platform__body ">
+    <div className="work-platform__body-container _container">
+      <Workplace store={store} />
+      <WorkPanel notifications={user.notifications} />
     </div>
-  );
+  </div>
+
+    </div>
+    
+);
 }
+
+
+
+
+
+
+
+
+
 
 export default App;
