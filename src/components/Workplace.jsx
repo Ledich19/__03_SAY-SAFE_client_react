@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import {
-  BrowserRouter as Router,
-  Routes, Route, Link, useMatch
-} from "react-router-dom"
-import peopleService from '../services/peoples'
-import Button from './Button'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Routes, Route,  useMatch } from 'react-router-dom'
+import personReducer, { setWisiblePerson } from '../reducers/personReducer'
+
 import Favorite from './Favorite/Favorite'
 import Mails from './Mails/Mails'
 import Messages from './Message/Message'
@@ -13,28 +11,14 @@ import Peoples from './peoples/Peoples'
 import PersonPage from './personPage/PersonPage'
 import Profile from './Profile/Profile'
 import ProfileSetting from './ProfileSetting/ProfileSetting'
-import SendBlock from './SendBlock'
 
-const Workplace = (props) => {
-  const [persons, setPersons] = useState([])
-
-  useEffect(() => {
-    peopleService
-      .getAll()
-      .then(persons => {
-        setPersons(persons)
-      })
-  }, [])
-
-  const match = useMatch('/persons/:id')
-  const person = match
-    ? persons.find(p => p.id === Number(match.params.id))
-    : null
+const Workplace = () => {
+ 
 
   return (
     <div className="work-platform__workplace">
       <Routes>
-        <Route path="/persons/:id" element={<PersonPage store={props.store} person={person} />} />
+        <Route path="/persons/:id" element={<PersonPage/>} />
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/pfofile" element={<Profile />} />
         <Route path="/setting" element={<ProfileSetting />} />
@@ -44,8 +28,6 @@ const Workplace = (props) => {
         <Route path="/credits" element={<Payment />} />
         <Route path="/" element={<Peoples />} />
       </Routes>
-
-
     </div>
   )
 }

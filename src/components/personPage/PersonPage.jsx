@@ -1,72 +1,46 @@
-import React, { useState, useEffect } from 'react'
-import {} from 'react-router-dom'
-import companionService from '../../services/companion'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useMatch } from 'react-router-dom'
+import { setWisiblePerson } from '../../reducers/personReducer'
 import Button from '../Button'
 import PersonChat from './PersonChat'
+import PersonFace from './PersonFace'
 import PersonMail from './PersonMail'
-import { createStore } from 'redux'
-import { useSelector, useDispatch } from 'react-redux'
 
-const PersonPage = (props) => {
+const PersonPage = () => {
   const [tabVisible, setTabVisible] = useState('tab_01')
-  // const [chat, setChat] = useState([])
-  const [text, setText] = useState('')
-
-  
-
-
-
-  // const addMassage = (event) => {
-  //   event.preventDefault()
-  //   const newMassage = {
-  //     id: 54277625,
-  //     ovnerId: 3567345567,
-  //     text: text,
-  //     data: '12/04/12:50',
-  //   }
-  //   console.log(newMassage)
-
-  //   companionService
-  //     .create(newMassage)
-  //     .then(response => {
-  //       console.log(response)
-  //     })
-  //   setText('')
-  // }
-
+  const persons = useSelector(state => state.peoples)
+  const dispatch = useDispatch()
   // useEffect(() => {
-  //   companionService
+  //   peopleService
   //     .getAll()
-  //     .then(response => {
-  //       setChat(response)
+  //     .then(persons => {
+  //       setPersons(persons)
   //     })
   // }, [])
-  const person = props.person
+  const match = useMatch('/persons/:id')
+  const person = match
+    ? persons.find(p => p.id === Number(match.params.id))
+    : null
+  useEffect(() => {
+    dispatch(setWisiblePerson(person))
+  },[])
+
+
 
   const tab = () => {
     if (tabVisible === 'tab_01') {
-      return (<PersonChat  photo={person.photo} text={text}
-        setText={setText} />)
+      return (
+        <PersonChat photo={person.photo}
+        />)
     } else if (tabVisible === 'tab_02') {
-      return (<PersonMail />)
+      return <PersonMail />
     }
   }
+
   return (
     <div className='work-platform__workplace workplace'>
-      <div className='workplace__info'>
-        <div className='workplace__photo'>
-          <img src={person.photo} alt='face' />
-          {person.isOnline
-            ? <div className='workplace__label _online'>online</div>
-            : <div className='workplace__label _ofline'>ofline</div>
-          }
-        </div>
-        <div>
-          <div className='workplace__name'>{person.name}</div>
-          <div className='workplace__profile-id'> Member&#39;s profile ID: {person.id}</div>
-          <div className='workplace__rating'> Member rating<span>{person.raiting}</span></div>
-        </div>
-      </div>
+      <PersonFace person={person}/>
       <div className='workplace__work-space'>
         <nav className='workplace__tabs-items'>
           <Button

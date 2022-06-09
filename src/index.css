@@ -614,10 +614,13 @@ body {
 .work-platform__body-container {
   display: flex;
   justify-content: space-between;
+  flex: 0 0 auto;
+  width: 100%;
 }
 
 .work-platform__workplace {
   flex: 0 0 85%;
+  width: 85%;
 }
 
 .work-platform__panel {
@@ -1248,6 +1251,11 @@ body {
   background: #ccc2c2;
   align-items: center;
 }
+.peoples-chats .people-item._active{
+  background: #8b8585;
+
+
+}
 
 .peoples-chats .people-item__photo {
   flex: 0 0 auto;
@@ -1309,19 +1317,22 @@ body {
   display: flex;
   background: white;
   justify-content: space-between;
-  padding: 10px;
-  height: 100px;
+  height: 50px;
+  border-bottom: 2px solid #000;
+ 
 }
 
 .header-chat__item {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 5px;
 }
 
 .header-chat .people-item__photo {
-  width: 110px;
-  height: 95%;
+  width: 80px;
+  height: 100%;
 }
 
 .header-chat .people-item__photo img {
@@ -1344,7 +1355,6 @@ body {
   white-space: nowrap;
   font-size: 25px;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
 .header-chat .people-item__rating {
@@ -1353,9 +1363,7 @@ body {
   background-color: #71db8f8c;
   color: #2FDA5F;
   display: flex;
-  gap: 40px;
-  width: 50%;
-  margin-bottom: 15px;
+  width: 20%;
   height: 30px;
   display: flex;
   align-items: center;
@@ -1553,13 +1561,12 @@ body {
 }
 
 .mails__nav {
-  height: 50px;
+  height: 40px;
 }
 
 .mails__list {
   display: flex;
   justify-content: start;
-  gap: 30px;
   width: 100%;
   background: white;
   height: 100%;
@@ -1571,16 +1578,13 @@ body {
   height: 100%;
   align-items: center;
   padding: 10px;
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
 }
 
 .mails__item._active {
   background: #888787;
-}
-
-.mails__link {
-  font-size: 30px;
-  color: black;
-  font-weight: bold;
 }
 
 .mails-body {
@@ -1588,6 +1592,7 @@ body {
   display: flex;
   flex-direction: column;
   height: calc(100% - 50px);
+  width: 100%;
 }
 
 .mails-body__mails {
@@ -1595,11 +1600,14 @@ body {
   overflow: auto;
   margin-bottom: 5px;
   border: solid 1px black;
+  width: 100%;
+
 }
 
 .mails-body__taxtarea {
   flex: 0 0 auto;
   height: 20%;
+  display: flex;
 }
 
 .mails-body__taxtarea textarea {
@@ -1617,9 +1625,6 @@ body {
   padding: 5px 5px;
 }
 
-.mails-body-header__check {
-  margin-right: 5px;
-}
 
 .mails-body-header__list {
   height: 30px;
@@ -1628,9 +1633,23 @@ body {
   gap: 15px;
   margin-left: 10px;
 }
+.mails-body-header__check {
+  margin-right: 5px;
+}
 
 .mails-body-header__item {
+  padding: 3px;
   font-size: 20px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  border: solid 1px black;
+  flex:0 0 auto;
+}
+.mails-body-header__item._active {
+  font-size: 20px;
+  height: 100%;
+  font-weight: bold;
+  background: rgb(187, 186, 186);
 }
 
 .mails-body-header__btn {
@@ -1646,11 +1665,30 @@ body {
   border: solid 1px black;
   height: 50px;
   align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.mails-item__indicate{
+background: rgb(253, 253, 253);
+border-radius: 10px;
+height: 20px;
+width: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.mails-item__indicate._in::before{
+  content:'\21E6';
+  color: rgb(168, 29, 5);
+}
+.mails-item__indicate._out::before{
+  content:'\21E8';
+  color: rgb(15, 180, 0);
 }
 
 .mails-item_photo {
   display: flex;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   height: 90%;
   width: 60px;
   overflow: hidden;
@@ -1667,29 +1705,47 @@ body {
 
 .mails-item__check-btn {
   margin: 0 15px;
-  transform: scale(1.5, 1);
+  transform: scale(1, 1);
 }
 
 .mails-item__name {
   margin-left: 10px;
   font-size: 18px;
+  flex: 0 1 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .mails-item__text {
+
   flex: 0 0 auto;
-  width: 50vw;
+  width: 70%;
   white-space: nowrap;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   padding: 0 5px;
   margin-left: 10px;
-  margin-right: 10px;
   border: solid 2px black;
   border-radius: 10px;
   line-height: 30px;
   overflow: hidden;
   text-overflow: ellipsis;
+
+}
+.mails-item__text span {
+  flex: 0 0 auto;
+
+display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+.mails-item__stop {
+  content:'';
+  flex: 0 0 1px;
+width: 1px;
+}
 .send-block {
   width: 100%;
   display: flex;
@@ -1944,11 +2000,24 @@ body {
   height: 30px;
   line-height: 20px;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+.profile-photos__btn{
+  height: 90%;
+  margin-left: 5px;
+  padding: 0 10px;
 }
 
 .profile-photos__photo-item {
+  position: relative;
   height: 65px;
   width: 31%;
+}
+.profile-photos__photo-chacbox {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .profile-photos__photo-item img {
@@ -1970,7 +2039,25 @@ body {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 15px;
+  margin-bottom: 15px;
+  width: 100%;
 }
+.profile-info__name-input{
+}
+.name-input__name{
+  width: 80%;
+}
+.name-input__age{
+  width: 20%;
+  
+}
+.profile-info__name input{
+  font-weight: bold;
+    padding: 5px 0;
+  height: 30px;
+  align-items: center;
+  font-size: 30px;
+  }
 
 .profile-info__id {
   font-size: 18px;
@@ -2002,14 +2089,23 @@ body {
   margin-bottom: 5px;
 }
 
-.profile-info__country span,
-.profile-info__city span,
-.profile-info__education span,
-.profile-info__drink span,
-.profile-info__gender span {
+.profile-info__element {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #504e4e;
+  margin-bottom: 5px;
+}
+
+.profile-info__element span {
   font-size: 16px;
   color: black;
   font-weight: bold;
+}
+.profile-info__element input {
+  font-size: 16px;
+  color: black;
+  padding-left: 5px;
 }
 
 .info-about {

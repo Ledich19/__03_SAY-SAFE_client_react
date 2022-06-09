@@ -80,7 +80,7 @@
       "raiting": 99,
       "id": 3567345567,
       "gender": "man",
-      "follow": true,
+      "follow": false,
       "isOnline": false
     },
     {

@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SendBlock from '../SendBlock'
 
 import { useDispatch } from 'react-redux'
 import { createMessage } from '../../reducers/chatReducer'
 
-const ChatTextBlock = ({ text , setText }) => {
-
+const ChatTextBlock = () => {
+  const [text, setText] = useState('')
   const dispatch = useDispatch()
+
   const addMassage = (event) => {
+
+
     event.preventDefault()
     const newText = text
     setText('')

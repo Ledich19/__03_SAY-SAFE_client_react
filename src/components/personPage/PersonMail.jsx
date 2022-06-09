@@ -1,24 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { createMail } from '../../reducers/personReducer'
+import SendBlock from '../SendBlock'
 
 
 
-const PersonMail = ({ person , togleFavirite}) => {
+const PersonMail = () => {
+  const [mailText, setMailText] = useState('')
+  const dispatch = useDispatch()
+
+  const setMail = (event) => {
+    event.preventDefault()
+    const newText = mailText
+    setMailText('')
+    dispatch(createMail(newText))
+  }
 
   return (
-    <div id="tab_02" className="workplace__tabs-block blok-mail">
-    <div className="blok-mail__wrapper">
+    <form onSubmit={setMail} id='tab_02' className='workplace__tabs-block blok-mail'>
+      <div className='blok-mail__wrapper'>
 
-      <textarea id="massege-chat" name="message-chat" rows="" cols="" className="blok-mail__textarea"
-        placeholder="Type your message here...."></textarea>
+        <textarea
+          value={mailText}
+          onChange={(e => setMailText(e.target.value))}
+          name='message-chat'
+          className='blok-mail__textarea'
+          placeholder='Type your message here....'>
+        </textarea>
 
-      <div className="blok-mail__footer">
-        <button type="button" className="blok-mail__add-file _icon-attachment">Attach your file</button>
-        <button type="button" className="blok-mail__mail-send send-button">SEND</button>
+        <SendBlock />
       </div>
-    </div>
-  </div>
+    </form>
   )
 
 }
+
 
 export default PersonMail

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 const Select = (props) => {
   return (
-    
+
     <select className={props.className}
       onChange={props.onChange}
       value={props.value}>
