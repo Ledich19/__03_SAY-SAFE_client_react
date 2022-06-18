@@ -1,5 +1,5 @@
 import React from 'react'
-import PhotosList from './PhotosList'
+import ProfilePhotos from './ProfilePhotos'
 import ProfileInfo from './ProfileInfo'
 import ProfilePhoto from './ProfilePhoto'
 
@@ -10,7 +10,7 @@ const Profile = () => {
     <div className="work-platform__my-profile my-profile">
       <ProfilePhoto />
       <ProfileInfo />
-      <PhotosList />
+      <ProfilePhotos />
     </div>
   )
 }

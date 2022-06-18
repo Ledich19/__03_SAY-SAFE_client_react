@@ -5,6 +5,7 @@ import { useState } from 'react'
 import {
   Link
 } from 'react-router-dom'
+import LogoutBtn from '../LogoutBtn'
 
 
 const User = () => {
@@ -23,8 +24,9 @@ const User = () => {
           <Link className='work-platform__user-item' to='/pfofile' >My pfofile</Link>
           <Link className='work-platform__user-item' to='/setting' >Profile setting</Link>
           <Link className='work-platform__user-item' to='/payment' >My payment</Link>
-          <button className='work-platform__user-item' to='/s' >Log out</button>
-
+          <LogoutBtn
+            className='work-platform__user-item'
+          />
         </ul>
       </div>
     </div>

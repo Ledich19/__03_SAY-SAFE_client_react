@@ -1,4 +1,5 @@
-const initialState = [{
+const initialState = [
+  {
     id: 3567345567,
     owner: 3567345567,
     ownerName: 'Уинстон',

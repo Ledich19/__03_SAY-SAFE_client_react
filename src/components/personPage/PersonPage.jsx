@@ -20,11 +20,13 @@ const PersonPage = () => {
   // }, [])
   const match = useMatch('/persons/:id')
   const person = match
-    ? persons.find(p => p.id === Number(match.params.id))
+    ? persons.find(p => p.id === match.params.id)
     : null
+  console.log('persons', persons)
+  console.log('person', person)
   useEffect(() => {
     dispatch(setWisiblePerson(person))
-  },[])
+  }, [])
 
 
 
@@ -40,7 +42,7 @@ const PersonPage = () => {
 
   return (
     <div className='work-platform__workplace workplace'>
-      <PersonFace person={person}/>
+      <PersonFace person={person} />
       <div className='workplace__work-space'>
         <nav className='workplace__tabs-items'>
           <Button

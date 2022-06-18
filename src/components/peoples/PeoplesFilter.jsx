@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from './Select'
 import { useDispatch } from 'react-redux'
-import { genderChange, ratingFromChange, ratingToChange } from '../../reducers/peoplesFilterReducer'
+import { genderChange, ratingFromChange, ratingToChange } from '../../reducers/peoples/peoplesFilterReducer'
 import { useSelector } from 'react-redux'
 
 

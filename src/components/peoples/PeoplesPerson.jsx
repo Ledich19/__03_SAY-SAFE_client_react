@@ -3,7 +3,7 @@ import Button from '../Button'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { toggleFollow } from '../../reducers/peoplesReducer'
+import { toggleFollow } from '../../reducers/peoples/peoplesReducer'
 
 
 
