@@ -1,11 +1,12 @@
 const initialState = {
-  errorMessage: '',
+  typeMassage: 'errorMessage',
+  errorMessage: null,
 }
 
 const errorReducer = (state = initialState, action) => {
   switch (action.type) {
   case 'SET_ERROR_MESSAGE':
-    return { errorMessage: action.errorMessage }
+    return { ...state, errorMessage: action.errorMessage }
   default:
     return state
   }

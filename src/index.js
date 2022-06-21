@@ -21,10 +21,15 @@ import userInfoReducer from './reducers/userInfoReducer'
 import photoListReducer from './reducers/profileReducers/photoListReducer'
 import photoCheckReducer from './reducers/profileReducers/photoCheckReducer'
 import loginReducer from './reducers/loginReducer'
+import registrationReducer from './reducers/facePage/registrationReducer'
+import errorReducer from './reducers/errorReducer'
 
 const reducer = combineReducers({
   user: userReducer,
   login: loginReducer,
+  registration: registrationReducer,
+
+  error: errorReducer,
 
   userInfo: userInfoReducer,
   photos: photoListReducer,

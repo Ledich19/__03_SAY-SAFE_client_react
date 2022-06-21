@@ -2,9 +2,10 @@ const initialState = {
   gender: 'all',
   ratingFrom: '0',
   ratingTo: '100',
+  page: 1,
 }
 
-const counterReducer = (state = initialState, action) => {
+const peoplesFilterReducer = (state = initialState, action) => {
   switch (action.type) {
   case 'SET_FILTER':
     return { ...state, gender: action.gender }
@@ -12,6 +13,8 @@ const counterReducer = (state = initialState, action) => {
     return { ...state, ratingFrom: action.ratingFrom }
   case 'SET_RATING_TO':
     return { ...state, ratingTo: action.ratingTo }
+  case 'SET_ACTIVE_PAGE':
+    return { ...state, page: action.page }
   default:
     return state
   }
@@ -39,4 +42,11 @@ export const ratingToChange = ratingTo => {
   }
 }
 
-export default counterReducer
+export const activePageChenge = page => {
+  return {
+    type: 'SET_ACTIVE_PAGE',
+    page,
+  }
+}
+
+export default peoplesFilterReducer

@@ -14,12 +14,6 @@ const Navigation = () => {
         <Link className='platform-menu__item _active' to='/mail' >MAIL</Link>
         <Link className='platform-menu__item _active' to='/credits' >CREDITS</Link>
       </ul>
-
-
-
-
-
-
     </nav>
   )
 }

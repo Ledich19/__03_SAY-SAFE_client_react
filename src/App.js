@@ -7,7 +7,8 @@ import Header from './components/Header/Header'
 import WorkPanel from './components/WorkPanel'
 import Workplace from './components/Workplace'
 import { setUser } from './reducers/loginReducer'
-import peoplesService from './services/peoples'
+import peoplesService from './services/personal'
+import userService from './services/user'
 
 // import axios from 'axios'
 
@@ -33,8 +34,8 @@ function App({ store }) {
       const user = JSON.parse(loggedUserJSON)
       dispatch(setUser(user))
       peoplesService.setToken(user.token)
+      userService.setToken(user.token)
     }
-
   }, [])
 
 

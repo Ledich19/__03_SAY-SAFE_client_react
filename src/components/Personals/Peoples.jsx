@@ -3,24 +3,31 @@ import PeoplesFuter from './PeoplesFooter'
 import Person from './PeoplesPerson'
 import { useSelector , useDispatch } from 'react-redux'
 import PeoplesFilter from './PeoplesFilter'
-import peoplesService from '../../services/peoples'
+import personalService from '../../services/personal'
 import { setPeoples } from '../../reducers/peoples/peoplesReducer'
 
 const Peoples = () => {
   const dispatch = useDispatch()
+  const personsShow = useSelector( satate => satate.peoples)
+  const filter = useSelector( state => state.filter)
+  // const personsShow = useSelector(({ peoples, filter }) => {
+  //   if (filter.gender === 'all') {
+  //     return peoples.filter(person =>
+  //       person.raiting >= filter.ratingFrom && person.raiting <= filter.ratingTo
+  //     )
+  //   } else {
+  //     return peoples.filter(person => (person.gender === filter.gender && person.raiting >= filter.ratingFrom && person.raiting <= filter.ratingTo))
+  //   }
+  // })
+  // useEffect(() => {
+  //   peoplesService.getAll().then(persons => dispatch(setPeoples(persons)))
+  // }, [])
 
-  const personsShow = useSelector(({ peoples, filter }) => {
-    if (filter.gender === 'all') {
-      return peoples.filter(person =>
-        person.raiting >= filter.ratingFrom && person.raiting <= filter.ratingTo
-      )
-    } else {
-      return peoples.filter(person => (person.gender === filter.gender && person.raiting >= filter.ratingFrom && person.raiting <= filter.ratingTo))
-    }
-  })
-  useEffect(() => {
-    peoplesService.getAll().then(persons => dispatch(setPeoples(persons)))
-  }, [])
+
+  useEffect( () => {
+    personalService.getAll(filter)
+      .then(persons => dispatch(setPeoples(persons)))
+  }, [filter])
 
   return (
     <div className='work-platform__peoples peoples'>

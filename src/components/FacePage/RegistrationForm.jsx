@@ -1,18 +1,49 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeUsername, changePassword } from '../../reducers/loginReducer'
+import { useNavigate } from 'react-router-dom'
 import logo from '../../img/logo.svg'
+import { setErrorMessage } from '../../reducers/errorReducer'
+import { changeRegistrationEmail, changeRegistrationRassword, changeRegistrationRepeadPassword, changeRegistrationUsername } from '../../reducers/facePage/registrationReducer'
+import registrationService from '../../services/registration'
 
 
 const RegistrationForm = () => {
-  const { password, username } = useSelector(state => state.login)
+  const { username, email, password, repeatPassword, } = useSelector(state => state.registration)
+  const { typeMassage, errorMessage } = useSelector(state => state.error)
   const dispatch = useDispatch()
-
+  const navigate = useNavigate()
 
   const handleRegistration = async (event) => {
     event.preventDefault()
+
+    if (password !== repeatPassword) {
+      dispatch(setErrorMessage('should be the same should be the same password'))
+      setTimeout(() => {
+        dispatch(setErrorMessage(null))
+        console.log(errorMessage)
+      }, 3000)
+      return
+    }
+
+    try {
+      await registrationService.registration({
+        username, password,
+      })
+      dispatch(changeRegistrationUsername(''))
+      dispatch(changeRegistrationEmail(''))
+      dispatch(changeRegistrationRassword(''))
+      dispatch(changeRegistrationRepeadPassword(''))
+      { navigate('/login') }
+    } catch (exception) {
+      dispatch(setErrorMessage('Wrong credentials'))
+      setTimeout(() => {
+        dispatch(setErrorMessage(null))
+      }, 5000)
+    }
+
     console.log('handleRegistration')
   }
+
 
   return (
     <div className="registration">
@@ -23,44 +54,45 @@ const RegistrationForm = () => {
 
 
       <form onSubmit={handleRegistration} className='registration__form'>
+        {errorMessage !== null && <div className={` registration__item ${typeMassage}`}>{errorMessage}</div>}
         <input
           value={username}
-          onChange={(e) => dispatch(changeUsername(e.target.value))}
-          name='login'
+          onChange={(e) => dispatch(changeRegistrationUsername(e.target.value))}
+          name='username'
           type='text'
           className='registration__item'
-          placeholder='login' />
+          placeholder='username' />
         <input
-          value={username}
-          onChange={(e) => dispatch(changeUsername(e.target.value))}
-          name='mail'
+          value={email}
+          onChange={(e) => dispatch(changeRegistrationEmail(e.target.value))}
+          name='email'
           type='text'
           className='registration__item'
-          placeholder='email' />
+          placeholder='mail' />
 
         <input
           value={password}
-          onChange={(e) => dispatch(changePassword(e.target.value))}
+          onChange={(e) => dispatch(changeRegistrationRassword(e.target.value))}
           name='password'
-          type='text'
+          type='password'
           className='registration__item'
 
           placeholder='password' />
         <input
-          value={password}
-          onChange={(e) => dispatch(changePassword(e.target.value))}
-          name='password2'
-          type='text'
+          value={repeatPassword}
+          onChange={(e) => dispatch(changeRegistrationRepeadPassword(e.target.value))}
+          name='repeat-password'
+          type='password'
           className='registration__item'
 
-          placeholder='password2' />
+          placeholder='repeat password' />
 
 
         <button type='submit' className='registration__btn registration__item'>registration</button>
 
-      </form>
+      </form >
 
-    </div>
+    </div >
 
   )
 }

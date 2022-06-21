@@ -30,7 +30,7 @@ const Person = ({ person }) => {
   return (
     <div className='peoples__item item-person'>
       <div className='item-person__photo'>
-        <img src={person.photo} alt='face' />
+        <img src={person.avatar} alt='face' />
       </div>
       <div className='item-person__name'>{person.name}{person.lastname}{person.patronymic}</div>
       <div className='item-person__statistic'>statistic<span>{person.raiting}</span></div>

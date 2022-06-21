@@ -1,22 +1,26 @@
 import React from 'react'
 import Button from '../Button'
-import avatar from '../../img/avatar.jpg'
+import nonAvatar from '../../img/userPhoto.png'
 import { useState } from 'react'
 import {
   Link
 } from 'react-router-dom'
 import LogoutBtn from '../LogoutBtn'
-
+import { useSelector } from 'react-redux'
 
 const User = () => {
+  const { avatar } = useSelector(state => state.user)
+  const userPhoto = avatar ? avatar : nonAvatar
+
   const [userMenuShow, setUserMenuShow] = useState(false)
   const handleShowMenu = () => {
     userMenuShow ? setUserMenuShow(false) : setUserMenuShow(true)
   }
+
   return (
     <div className='work-platform__user '>
       <div className='work-platform__user-photo'>
-        <img src={avatar} alt='image description' />
+        <img src={userPhoto} alt='image description' />
       </div>
       <Button onClick={handleShowMenu} className='work-platform__user-button' text='' />
       <div className={`work-platform__user-menu ${userMenuShow ? '_active' : ''}`}>

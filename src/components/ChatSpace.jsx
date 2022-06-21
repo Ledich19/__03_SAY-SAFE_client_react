@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 const ChatSpace = () => {
 
-  const chat = useSelector(state => state.visibleUser.chat)
+  const chat = useSelector(state => state.chat)
   const photo = useSelector(state => state.visibleUser.photo)
 
   const userId = useSelector(state => state.user.id)

@@ -2,12 +2,12 @@ import React from 'react'
 
 
 const PersonFace = ({ person }) => {
-  const{ photo , isOnline , id , raiting , name } = person
+  const{ avatar , isOnline , id , raiting , name } = person
 
   return (
     <div className='workplace__info'>
       <div className='workplace__photo'>
-        <img src={photo} alt='face' />
+        <img src={avatar} alt='face' />
         {isOnline
           ? <div className='workplace__label _online'>online</div>
           : <div className='workplace__label _ofline'>ofline</div>

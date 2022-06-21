@@ -1,15 +1,10 @@
 import axios from 'axios'
-const baseUrl = '/api/peoples'
+const baseUrl = '/api/personal'
 
 let token = null
 
 const setToken = newToken => {
   token = `bearer ${newToken}`
-}
-
-const getAll = () => {
-  const request = axios.get(baseUrl)
-  return request.then(response => response.data)
 }
 
 const update = (id, newObject) => {
@@ -21,11 +16,10 @@ const update = (id, newObject) => {
   return request.then(response => response.data)
 }
 
-const peoplesService = {
-  getAll,
+const userService = {
   update,
-  setToken
+  setToken,
 }
 
-export default peoplesService
+export default userService
 

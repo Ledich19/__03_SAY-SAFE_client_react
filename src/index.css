@@ -2399,3 +2399,15 @@ body::-webkit-scrollbar-thumb {
   width: 60%;
   padding-right: 30px;
 }
+
+.errorMessage {
+  color:red;
+  border-radius: 3px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  background: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: solid 3px red;
+}
