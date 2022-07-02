@@ -2,7 +2,7 @@ const initialState = {
   name: '',
   lastname: '',
   patronymic: '',
-  photo: '',
+  avatar: '',
   raiting: 0,
   id: 0,
   gender: '',

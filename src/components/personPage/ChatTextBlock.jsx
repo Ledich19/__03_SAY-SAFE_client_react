@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SendBlock from '../SendBlock'
+import SendBlock from '../SendBlock/SendBlock'
 
 import { useDispatch } from 'react-redux'
 import { createMessage } from '../../reducers/chatReducer'

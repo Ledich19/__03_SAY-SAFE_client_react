@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from './Button'
-import SendBlock from './SendBlock'
+import SendBlock from './SendBlock/SendBlock'
 
 import { Link } from 'react-router-dom'
 

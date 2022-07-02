@@ -1,0 +1,55 @@
+.login-form {
+  flex: 0 1 auto;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding-right: 30px;
+  
+  &__item {
+    flex: 1 1 auto;
+    max-width: 500px;
+    height: 40px;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  &__login {
+    padding-left: 15px;
+    font-size: 16px;
+  }
+
+  &__password {
+    flex: 1 1 auto;
+    padding-left: 15px;
+    font-size: 16px;
+  }
+  
+  &__forgot-button {
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+  }
+  
+  &__registration {
+    margin-top: 20px;
+  }
+  
+  &__text {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  &__to-registration {
+    width: 100%;
+    padding-left: 10px;
+    flex: 1 1 auto;
+    max-width: 500px;
+    height: 40px;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+}

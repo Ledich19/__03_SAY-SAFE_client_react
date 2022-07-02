@@ -6,7 +6,7 @@ import FacePage from './components/FacePage/FacePage'
 import Header from './components/Header/Header'
 import WorkPanel from './components/WorkPanel'
 import Workplace from './components/Workplace'
-import { setUser } from './reducers/loginReducer'
+import { setUser } from './reducers/userReducer'
 import peoplesService from './services/personal'
 import userService from './services/user'
 
@@ -26,7 +26,9 @@ import userService from './services/user'
 //   })
 
 function App({ store }) {
-  const { user } = useSelector(state => state.login)
+  const  user = useSelector(state => state.user)
+  console.log('\x1b[42m user',user ,'\x1b[0m')
+
   const dispatch = useDispatch()
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedNoteappUser')

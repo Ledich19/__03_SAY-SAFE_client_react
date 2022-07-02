@@ -2,10 +2,13 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { setErrorMessage } from '../../reducers/errorReducer'
-import { changeUsername, changePassword, setUser } from '../../reducers/loginReducer'
+import { changeUsername, changePassword } from '../../reducers/loginReducer'
 import loginService from '../../services/login'
 import logo from '../../img/logo.svg'
-
+import { setUser } from '../../reducers/userReducer'
+import peoplesService from '../../services/personal'
+import userService from '../../services/user'
+import './LoginForm.scss'
 
 const LoginForm = () => {
   const { password, username } = useSelector(state => state.login)
@@ -25,6 +28,8 @@ const LoginForm = () => {
       dispatch(changeUsername(''))
       dispatch(changePassword(''))
       dispatch(setUser(user))
+      peoplesService.setToken(user.token)
+      userService.setToken(user.token)
       { navigate('/') }
 
     } catch (exception) {
@@ -35,18 +40,14 @@ const LoginForm = () => {
     }
   }
 
+
+
   return (
     <div className="info-page">
 
       <div className="info-page__logo">
         <img src={logo} alt="image description" />
       </div>
-
-
-
-
-
-
 
       <form onSubmit={handleLogin} className='login-form'>
         <input
@@ -62,7 +63,7 @@ const LoginForm = () => {
             value={password}
             onChange={(e) => dispatch(changePassword(e.target.value))}
             name='password'
-            type='text'
+            type='password'
             className='login-form__password'
             placeholder='password' />
           <button type='button' className='login-form__forgot-button'>forgot<br /> password</button>

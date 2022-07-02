@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { sendMail } from '../../reducers/mailsReducer'
-import SendBlock from '../SendBlock'
+import SendBlock from '../SendBlock/SendBlock'
 
 const MailsText = () => {
   const[text , setText ] = useState('')

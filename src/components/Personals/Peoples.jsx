@@ -1,6 +1,6 @@
 import React , { useEffect } from 'react'
 import PeoplesFuter from './PeoplesFooter'
-import Person from './PeoplesPerson'
+import Person from './PersonItem'
 import { useSelector , useDispatch } from 'react-redux'
 import PeoplesFilter from './PeoplesFilter'
 import personalService from '../../services/personal'

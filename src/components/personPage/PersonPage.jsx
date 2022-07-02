@@ -6,6 +6,7 @@ import Button from '../Button'
 import PersonChat from './PersonChat'
 import PersonFace from './PersonFace'
 import PersonMail from './PersonMail'
+import personalService from '../../services/personal'
 
 const PersonPage = () => {
   const [tabVisible, setTabVisible] = useState('tab_01')
@@ -22,19 +23,23 @@ const PersonPage = () => {
   const person = match
     ? persons.find(p => p.id === match.params.id)
     : null
-  console.log('persons', persons)
-  console.log('person', person)
   useEffect(() => {
-    dispatch(setWisiblePerson(person))
-  }, [])
+    if (person) {
+      dispatch(setWisiblePerson(person))
+    }
+
+    personalService.getById(match.params.id)
+      .then(person => dispatch(setWisiblePerson(person)))
+
+  },[])
+
 
 
 
   const tab = () => {
     if (tabVisible === 'tab_01') {
       return (
-        <PersonChat photo={person.photo}
-        />)
+        <PersonChat />)
     } else if (tabVisible === 'tab_02') {
       return <PersonMail />
     }

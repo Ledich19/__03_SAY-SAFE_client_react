@@ -1,0 +1,39 @@
+.send-block {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 5px;
+  
+  &__send-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 80px;
+    background: pink;
+    padding: 5px;
+  }
+
+  &__btn-block {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__smile, &__add-document{
+    display: inline-flex;
+    text-align: center;
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 50%;
+    background: rgb(156, 156, 156);
+    border: solid 1px rgb(138, 137, 137);
+  }
+
+  &__add-document {
+   
+  }
+  &__smile {
+   color: yellow;
+  }
+}

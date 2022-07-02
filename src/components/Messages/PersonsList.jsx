@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import PersonsListItem from './PersonsListItem'
+import ListItem from './ListItem'
 
 const PersonsList = () => {
   const persons = useSelector(state => state.peoplesWithChat)
@@ -14,7 +14,7 @@ const PersonsList = () => {
       </form>
       <div className='peoples-chats__list'>
         {persons.map(person =>
-          <PersonsListItem
+          <ListItem
             className={ person.id === activeID ? '_active' : ''}
             key={person.id}
             person={person} />

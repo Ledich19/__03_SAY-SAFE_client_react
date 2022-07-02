@@ -5,6 +5,8 @@ import logo from '../../img/logo.svg'
 import { setErrorMessage } from '../../reducers/errorReducer'
 import { changeRegistrationEmail, changeRegistrationRassword, changeRegistrationRepeadPassword, changeRegistrationUsername } from '../../reducers/facePage/registrationReducer'
 import registrationService from '../../services/registration'
+import './RegistrationForm.scss'
+
 
 
 const RegistrationForm = () => {

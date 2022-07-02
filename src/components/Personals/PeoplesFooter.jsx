@@ -25,6 +25,7 @@ const PeoplesFuter = () => {
   useEffect(() => {
     personalService.getCount(filter)
       .then(count => {
+        console.log('\x1b[42m pagesCount' , count,'\x1b[0m')
         const totalUsersCount = count
         console.log(count, count)
         const peopleFooterWrapper = document.querySelector('.peoples-footer__wrapper')

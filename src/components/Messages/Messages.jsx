@@ -5,7 +5,10 @@ import MessagePersonInfo from './MessagePersonInfo'
 import PersonsList from './PersonsList'
 
 const Messages = () => {
-
+  // const match = useMatch('/messages/:id')
+  // const person = match
+  //   ? persons.find(p => p.id === match.params.id)
+  //   : null
 
   return (
     <div className='worcplatform__chats chats'>

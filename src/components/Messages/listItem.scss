@@ -1,0 +1,62 @@
+.people-item {
+  flex: 1 0 80px;
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background: #ccc2c2;
+  align-items: center;
+}
+
+.people-item._active {
+  background: #8b8585;
+}
+.people-item {
+  
+  &__photo {
+    flex: 0 0 auto;
+    height: 100%;
+    width: 110px;
+  }
+  
+  &__photo img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  &__text {
+    flex: 1 0;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  &__name {
+    flex: 1 0;
+    width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  &__rating {
+    font-size: 16px;
+    color: #08BD7C;
+  }
+  &__new-messages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    border-radius: 50%;
+    border: solid 1px rgb(112, 112, 112);
+    color: blue;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+}

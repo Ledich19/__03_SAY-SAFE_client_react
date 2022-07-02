@@ -2,15 +2,24 @@ import React from 'react'
 import Button from '../Button'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { toggleFollow } from '../../reducers/peoples/peoplesReducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleFollow } from '../../reducers/userReducer'
+import userService from '../../services/user'
 
 
 
 const Person = ({ person }) => {
   const dispatch = useDispatch()
+  const userMembers = useSelector(state => state.user.members)
+  const members = userMembers ? userMembers : []
 
-  const togglePersonFollow = (id) => dispatch(toggleFollow(id))
+  const togglePersonFollow = (id) => {
+    userService.follow(id)
+      .then(person => {
+        console.log('person', person)
+        dispatch(toggleFollow(person))
+      })
+  }
 
   useEffect(() => {
     let divs = document.querySelectorAll('.peoples__item'), timer, pause = 1
@@ -39,7 +48,10 @@ const Person = ({ person }) => {
           start talk
         </Link>
 
-        <Button onClick={() => togglePersonFollow(person.id)} className='item-person__add' text={person.follow ? 'unfollow' : 'follow'} />
+        <Button
+          onClick={() => togglePersonFollow(person.id)}
+          className='item-person__add'
+          text={members.includes(person.id) ? 'unfollow' : 'follow'} />
       </div>
     </div>
   )

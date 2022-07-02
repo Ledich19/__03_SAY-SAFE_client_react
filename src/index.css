@@ -183,7 +183,7 @@ body {
   width: 100%;
   font-size: 100%;
   line-height: 1;
-  font-size: 16px;
+  font-size: 14px;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -386,15 +386,6 @@ body {
   padding: 0 10px;
 }
 
-.send-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  width: 40px;
-  background: pink;
-  padding: 5px;
-}
 
 body {
   background-color: #08147e;
@@ -555,100 +546,14 @@ border-radius: 50px;
   align-items: center;
 }
 
-.login-form {
-  flex: 0 1 auto;
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  padding-right: 30px;
-}
 
-.login-form__item {
-  flex: 1 1 auto;
-  max-width: 500px;
-  height: 40px;
-  margin-bottom: 15px;
-  font-size: 16px;
-}
 
-.login-form__login {
-  padding-left: 15px;
-  font-size: 16px;
-}
-.registration {
-  padding-top: 50px;
-  display: flex;
- justify-content: space-between;
-}
-
-.registration__form {
-  flex: 0 1 auto;
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  padding-right: 30px;
-}
-
-.registration__item {
-  padding-left: 10px;
-  flex: 1 1 auto;
-  max-width: 500px;
-  height: 40px;
-  margin-bottom: 15px;
-  font-size: 16px;
-}
-.registration__item input{
-  
-  padding-left: 15px;
-}
-
-.registration__login {
-  padding-left: 15px;
-  font-size: 16px;
-}
-.registration__btn {
-  font-size: 16px;
-}
 
 .login-form__password-block {
   display: flex;
 }
 
-.login-form__password {
-  flex: 1 1 auto;
-  padding-left: 15px;
-  font-size: 16px;
-}
 
-.login-form__forgot-button {
-  width: 25%;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-}
-
-.login-form__registration {
-  margin-top: 20px;
-}
-
-.login-form__text {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 15px;
-  color: white;
-}
-
-.login-form__to-registration {
-  width: 100%;
-  padding-left: 10px;
-  flex: 1 1 auto;
-  max-width: 500px;
-  height: 40px;
-  margin-bottom: 15px;
-  font-size: 16px;
-}
 
 
 .platform-menu__list {
@@ -1201,10 +1106,7 @@ border-radius: 50px;
   align-self: start;
 }
 
-.workplace .block-chat__item._my-massege {
-  background: #b3eea4;
-  align-self: end;
-}
+
 
 .workplace .block-chat__wrapper {
   overflow: scroll;
@@ -1222,7 +1124,7 @@ border-radius: 50px;
   position: relative;
   border-top: 1px solid #000;
   display: flex;
-  align-items: end;
+   align-items: flex-end; 
 }
 
 .workplace .block-chat__textarea {
@@ -1275,10 +1177,18 @@ border-radius: 50px;
   flex: 1 1 25%;
 }
 
+.peoples-chats .people-item {
+  flex: 1 0 80px;
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background: #ccc2c2;
+  align-items: center;
+}
 .chats__chat-space {
   flex: 1 1 75%;
 }
-
+ 
 .peoples-chats {
   display: flex;
   flex-direction: column;
@@ -1303,53 +1213,6 @@ border-radius: 50px;
   height: 10px;
 }
 
-.peoples-chats .people-item {
-  flex: 1 0 80px;
-  display: flex;
-  width: 100%;
-  height: 80px;
-  background: #ccc2c2;
-  align-items: center;
-}
-.peoples-chats .people-item._active{
-  background: #8b8585;
-
-
-}
-
-.peoples-chats .people-item__photo {
-  flex: 0 0 auto;
-  height: 90%;
-  width: 100px;
-}
-
-.peoples-chats .people-item__photo img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.peoples-chats .people-item__text {
-  flex: 1 0;
-  padding: 10px;
-  width: 100%;
-}
-
-.peoples-chats .people-item__name {
-  flex: 1 0;
-  width: 180px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-  white-space: nowrap;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.peoples-chats .people-item__rating {
-  font-size: 16px;
-  color: #08BD7C;
-}
 
 .search {
   flex: 0 0 auto;
@@ -1456,101 +1319,8 @@ border-radius: 50px;
 .chat-space__body {
 }
 
-.chat-body {
-  background: #c7c5c5;
-  flex: 1 1 auto;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 5px;
-  padding: 0 10px;
-}
 
-.chat-body__item {
-  max-width: 80%;
-  margin-bottom: 5px;
-  border-radius: 0px 5px 5px 0px;
-  align-self: start;
-}
 
-.chat-body__item._my-massege {
-  align-self: end;
-  border-radius: 5px 0px 0px 5px;
-  flex-direction: row-reverse;
-}
-
-.chat-body__footer {
-  display: flex;
-  flex: 0 0 auto;
-  height: 100px;
-}
-
-.chat-body .item-massege {
-  position: relative;
-  display: flex;
-}
-
-.chat-body .item-massege__photo {
-  align-self: end;
-  flex: 0 0 auto;
-  height: 50px;
-  width: 50px;
-}
-
-.chat-body .item-massege__photo img {
-  border-radius: 50%;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.chat-body .item-massege__text {
-  position: relative;
-  margin: 0 10px;
-  background: #fafafa;
-  padding: 5px;
-  padding-bottom: 10px;
-  border-radius: 7px;
-  font-size: 18px;
-  line-height: 22px;
-}
-
-.chat-body .item-massege__text::before {
-  position: absolute;
-  content: "";
-  border: 15px solid transparent;
-  border-bottom-color: white;
-  bottom: 0;
-  left: -14px;
-}
-
-.chat-body .item-massege__data {
-  position: absolute;
-  bottom: -5px;
-  right: 15px;
-  font-size: 10px;
-}
-
-._my-massege .item-massege__data {
-  left: 15px;
-}
-
-._my-massege .item-massege__text {
-  background: #89f56d;
-}
-
-._my-massege .item-massege__text::before {
-  content: none;
-}
-
-._my-massege .item-massege__text::after {
-  position: absolute;
-  content: "";
-  border: 15px solid transparent;
-  border-bottom-color: #89f56d;
-  right: -14px;
-}
 
 .chat-footer {
   border-top: 2px solid #000;
@@ -1626,7 +1396,7 @@ border-radius: 50px;
 
 .mails__list {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   width: 100%;
   background: white;
   height: 100%;
@@ -1807,12 +1577,7 @@ display: block;
 width: 1px;
 }
 .send-block {
-  width: 100%;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 10px;
+ 
 
 }
 
@@ -2235,7 +2000,7 @@ width: 1px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .form-about__item span {

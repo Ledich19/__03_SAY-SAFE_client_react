@@ -8,19 +8,7 @@ const peoplesReducer = (state = initialState, action) => {
     return action.peoples
   case 'NEW_MESSAGE':
     return state
-  case 'TOGLE_FOLLOW':
-  {
-    console.log(state)
-    const id = action.id
-    const personToChange = state.find( p => p.id === action.id)
-    const changedPerson = {
-      ...personToChange,
-      follow: !personToChange.follow
-    }
-    return state.map(person =>
-      person.id !== id ? person : changedPerson
-    )
-  }
+
   default:
     return state
   }
@@ -41,12 +29,6 @@ export const addMessage = (text) => {
   }
 }
 
-export const toggleFollow = (id) => {
-  console.log('toge')
-  return {
-    type: 'TOGLE_FOLLOW',
-    id,
-  }
-}
+
 
 export default peoplesReducer

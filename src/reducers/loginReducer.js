@@ -12,8 +12,7 @@ const loginReducer = (state = initialState, action) => {
     return { ...state, password: action.password }
   case 'USER_LOGIN':
     return { ...state, password: action.password }
-  case 'SET_USER':
-    return { ...state, user: action.user }
+
   default:
     return state
   }
@@ -31,14 +30,7 @@ export const changePassword = (password) => {
     password,
   }
 }
-export const setUser = ( user ) => {
-  console.log('SET_USER')
-  console.log( user )
-  return {
-    type: 'SET_USER',
-    user
-  }
-}
+
 export const login = (password) => {
   console.log('USER_LOGIN')
   return {

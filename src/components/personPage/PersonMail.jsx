@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createMail } from '../../reducers/personReducer'
-import SendBlock from '../SendBlock'
+import SendBlock from '../SendBlock/SendBlock'
 
 
 

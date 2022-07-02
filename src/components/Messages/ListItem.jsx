@@ -1,14 +1,15 @@
 
 import { useDispatch } from 'react-redux'
 import { setWisiblePerson } from '../../reducers/personReducer'
+import './listItem.scss'
 
-const PersonsListItem = ( { person , className }) => {
+const ListItem = ( { person , className }) => {
 
   const dispatch = useDispatch()
   const setPerson = () => dispatch(setWisiblePerson(person))
 
   return (
-    <div onClick={setPerson} className={`peoples-chats__item people-item ${className}`}>
+    <div onClick={setPerson} className={`people-item ${className}`}>
       <div className='people-item__photo'>
         <img src={person.photo} alt='image description' />
       </div>
@@ -18,9 +19,11 @@ const PersonsListItem = ( { person , className }) => {
           <span>{person.rating}</span>
         </div>
       </div>
-      <div className='people-item__stop'></div>
+      <div className='people-item__new-messages'>
+        99+
+      </div>
     </div>
   )
 }
 
-export default PersonsListItem
+export default ListItem
