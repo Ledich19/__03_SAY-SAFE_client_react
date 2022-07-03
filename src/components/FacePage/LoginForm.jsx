@@ -73,7 +73,7 @@ const LoginForm = () => {
         <div className='login-form__registration'>
           <div className='login-form__text'>YOU STILL ARENT WITH US?</div>
           <Link  to='/registration' >
-            <button className='login-form__to-registration' type='button' >CREATE</button>
+            <button className='login-form__to-registration' type='button' >Register</button>
           </Link>
 
         </div>

@@ -5,20 +5,22 @@
 
   &__form {
     flex: 0 1 auto;
-    font-size: 16px;
     display: flex;
     flex-direction: column;
     width: 500px;
-    padding-right: 30px;
+    position: relative;
   }
-
+  
   &__item {
+    border-radius: 3px;
+    font-size: 1.4rem;
     padding-left: 10px;
     flex: 1 1 auto;
     max-width: 500px;
     height: 40px;
     margin-bottom: 15px;
-    font-size: 16px;
+    width: 95%;
+
   }
 
   &__item input {
@@ -28,10 +30,15 @@
 
   &__login {
     padding-left: 15px;
-    font-size: 16px;
   }
 
   &__btn {
-    font-size: 16px;
+  }
+  &__error{
+    margin-left: 5px;
+    width: 95%;
+    font-size: 0.9rem;
+    position: absolute;
+    color: red;
   }
 }
