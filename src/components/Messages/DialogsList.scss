@@ -1,0 +1,24 @@
+
+.dialogs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__search {
+    margin: 10px;
+  }
+
+  &__list {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  &__footer {
+    flex: 0 0 auto;
+    content: "";
+    height: 10px;
+  }
+}

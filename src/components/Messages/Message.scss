@@ -9,15 +9,58 @@
     flex-direction: row-reverse;
   }
 
+  &._is-typing {
+    .typing-indicator {
+      will-change: transform;
+      width: auto;
+      padding: 5px;
+      display: flex;
+      margin: 0 auto;
+      position: relative;
+      animation: 2s bulge infinite ease-out;
+
+      span {
+        height: 5px;
+        width: 5px;
+        margin: 0 1px;
+        background-color: #9E9EA1;
+        display: block;
+        border-radius: 50%;
+        opacity: 0.4;
+
+        @for $i from 1 through 3 {
+          &:nth-of-type(#{$i}) {
+            animation: 1s blink infinite ($i * .3333s);
+          }
+        }
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes bulge {
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+  }
+
   &__read {
     flex: 0 0 auto;
     color: rgb(138, 137, 138);
     position: relative;
     bottom: 6px;
     right: 5px;
+
     ._my-messege & {
       right: -5px;
     }
+
     &._readed {
       color: rgb(156, 23, 156);
     }
@@ -37,11 +80,10 @@
     }
   }
 
-
   &__content {}
 
   &__text {
-    
+
     word-break: break-word;
     position: relative;
     margin-left: 10px;
@@ -50,12 +92,20 @@
     border-radius: 7px;
     font-size: 1rem;
     line-height: 1.4rem;
-    
+
     ._my-messege & {
       background: #89f56d;
       margin-left: 0;
       margin-right: 10px;
     }
+
+    // ._is-typing & {
+    //   content: '...';
+    //   font-weight: bold;
+    //   font-size: 2rem;
+    //   padding-right: 15px;
+    //   padding-left: 15px;
+    // }
 
     &::before {
       position: absolute;
@@ -82,7 +132,6 @@
 
   }
 
-
   &__data {
     display: flex;
     justify-content: flex-end;
@@ -94,16 +143,17 @@
     }
   }
 
-  
-  &__attachmens{
+  &__attachmens {
     display: flex;
     flex-wrap: wrap;
     gap: 3px;
   }
-  &__attachmens-item{
+
+  &__attachmens-item {
     cursor: pointer;
-width: 40px;
-height: 40px;
+    width: 40px;
+    height: 40px;
+
     img {
       border-radius: 7px;
       height: 100%;

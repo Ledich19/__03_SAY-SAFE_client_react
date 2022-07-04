@@ -17,6 +17,15 @@ const ChatSpace = () => {
   return (
     <div className='chats__chat-space chat-body'>
 
+      <Message
+        className='chat-body__item'
+        key={'bn fhf hjv'}
+        avatar={avatar}
+        isMe={false}
+        isReaded={false}
+        isTyping = {true}
+      />
+
       {chat.map(i => {
         return (
           <Message
@@ -55,6 +64,9 @@ const ChatSpace = () => {
         )
       })
       }
+
+
+
 
     </div>
   )

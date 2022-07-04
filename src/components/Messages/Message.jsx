@@ -2,21 +2,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './Message.scss'
-import { formatDistanceToNow } from 'date-fns'
-import ruLocale from 'date-fns/locale/ru'
 import { BsCheckAll } from 'react-icons/bs'
+import Time from './Time'
 
-const Message = ({ text, date, avatar, username, isMe, isReaded, className, atachments }) => {
+const Message = ({ text, date, avatar, username, isMe, isReaded, className, atachments, isTyping }) => {
   BsCheckAll
   return (
-    <div className={`item-messege ${(isMe) ? '_my-messege' : ''} ${className}`}>
+    <div className={`item-messege ${(isMe) ? '_my-messege' : ''} ${(isTyping) ? '_is-typing' : ''} ${className}`}>
       <div className='item-messege__photo'>
         <img src={avatar} alt={`avatar ${username}`} />
       </div>
       <div className='item-message__content'>
 
         <div className='item-messege__text'>
-          {text}
+          <div className="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p>{text}</p>
           <div className='item-messege__attachmens'>
             {atachments.map((item) => {
               return (
@@ -27,11 +31,10 @@ const Message = ({ text, date, avatar, username, isMe, isReaded, className, atac
             })}
           </div>
         </div>
-        <time className='item-messege__data'>
-          <span>{formatDistanceToNow(new Date(date), { addSuffix: true, locale: ruLocale })}</span>
-        </time>
+        <Time date={date} className='item-messege__data'/>
       </div>
-      <BsCheckAll className={`item-messege__read ${(isMe && isReaded) ? '_readed' : ''}`} />
+      { !isTyping && isMe && <BsCheckAll className={(isReaded) ? 'item-messege__read _readed' : 'item-messege__read'} />
+      }
     </div>
   )
 }
@@ -41,7 +44,8 @@ Message.defaultProps = {
   data: '',
   avatar: '',
   username: '',
-  isMy: '',
+  isMy: false,
+  atachments: []
 }
 
 Message.propTypes = {
@@ -51,6 +55,7 @@ Message.propTypes = {
   username: PropTypes.string,
   isMy: PropTypes.bool,
   atachments: PropTypes.array,
+  isTyping: PropTypes.bool,
 }
 
 export default Message
