@@ -16,7 +16,6 @@ const Person = ({ person }) => {
   const togglePersonFollow = (id) => {
     userService.follow(id)
       .then(person => {
-        console.log('person', person)
         dispatch(toggleFollow(person))
       })
   }

@@ -18,11 +18,10 @@ const personReducer = (state = initialState, action) => {
   case 'SET_WISIBLE_PERSON':
     return action.person
   case 'SEND_MAIL':
-    console.log('SEND_MAIL', action.mail)
+
     return state
   case 'NEW_MESSAGE': {
-    console.log(state)
-    console.log(action.data)
+
     const chat = state.chat
     const newChat = chat.concat(action.data)
     return {

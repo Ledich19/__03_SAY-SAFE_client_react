@@ -11,7 +11,7 @@ const userReducer = (state = initialState, action) => {
   case 'TOGLE_FOLLOW': {
     const id = action.id
 
-    console.log('\x1b[42m state.members', state.members, '\x1b[0m')
+
 
     const memebers = state.members.includes(id) ?
       state.members.filter((m) => m !== id) :
@@ -64,8 +64,7 @@ export const toggleFollow = (id) => {
 }
 
 export const setUser = (user) => {
-  console.log('SET_USER')
-  console.log(user)
+
   return {
     type: 'SET_USER',
     user

@@ -27,7 +27,6 @@ import userService from './services/user'
 
 function App({ store }) {
   const  user = useSelector(state => state.user)
-  console.log('\x1b[42m user',user ,'\x1b[0m')
 
   const dispatch = useDispatch()
   useEffect(() => {

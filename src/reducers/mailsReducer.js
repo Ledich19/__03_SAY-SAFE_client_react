@@ -190,7 +190,7 @@ const mailsReducer = (state = initialState, action) => {
     const newState = state.filter( mail => !action.mailsDelete.includes(mail.id) )
     return newState}
   case 'SEND_MAIL': {
-    console.log(action.data)
+
     const newMail = action.data
     const newState = state.concat(newMail)
 

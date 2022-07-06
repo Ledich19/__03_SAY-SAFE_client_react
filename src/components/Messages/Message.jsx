@@ -4,14 +4,21 @@ import PropTypes from 'prop-types'
 import './Message.scss'
 import { BsCheckAll } from 'react-icons/bs'
 import Time from './Time'
+import Avatar from './Avatar'
 
-const Message = ({ text, date, avatar, username, isMe, isReaded, className, atachments, isTyping }) => {
-  BsCheckAll
+const Message = ({ id , text, date, avatar, username, isMe, isReaded, className, atachments, isTyping }) => {
+
   return (
     <div className={`item-messege ${(isMe) ? '_my-messege' : ''} ${(isTyping) ? '_is-typing' : ''} ${className}`}>
-      <div className='item-messege__photo'>
+      <Avatar
+        id={id}
+        avatar={avatar}
+        username={username}
+        className={'item-messege__photo'}
+      />
+      {/* <div className='item-messege__photo'>
         <img src={avatar} alt={`avatar ${username}`} />
-      </div>
+      </div> */}
       <div className='item-message__content'>
 
         <div className='item-messege__text'>
@@ -31,9 +38,9 @@ const Message = ({ text, date, avatar, username, isMe, isReaded, className, atac
             })}
           </div>
         </div>
-        <Time date={date} className='item-messege__data'/>
+        <Time date={date} className='item-messege__data' />
       </div>
-      { !isTyping && isMe && <BsCheckAll className={(isReaded) ? 'item-messege__read _readed' : 'item-messege__read'} />
+      {!isTyping && isMe && <BsCheckAll className={(isReaded) ? 'item-messege__read _readed' : 'item-messege__read'} />
       }
     </div>
   )
@@ -42,7 +49,6 @@ const Message = ({ text, date, avatar, username, isMe, isReaded, className, atac
 Message.defaultProps = {
   text: '',
   data: '',
-  avatar: '',
   username: '',
   isMy: false,
   atachments: []

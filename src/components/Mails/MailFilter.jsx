@@ -25,8 +25,7 @@ const MailFilter = ({ visibleMails }) => {
   }
 
   function equalArrays() {
-    console.log(mailsDelete)
-    console.log(visibleMails)
+
     if (visibleMails.length === 0 || mailsDelete.length === 0) return false
     if (visibleMails.length !== mailsDelete.length) return false // Мас­си­вы раз­ной дли­ны не рав­ны
 

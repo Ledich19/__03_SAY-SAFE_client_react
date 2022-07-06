@@ -1,0 +1,55 @@
+
+import './Avatar.scss'
+import PropTypes from 'prop-types'
+import noAvatar from '../../img/userPhoto.png'
+import { useEffect } from 'react'
+import { useState } from 'react'
+
+
+const Avatar = ({ username, avatar, isOnline, className, id }) => {
+  const [colorStyle, setColorStyle] = useState('')
+  // function getRandomInt(max) {
+  //   return Math.floor(Math.random() * max)
+  // }
+
+  useEffect(() => {
+    if (!avatar) {
+      const [r, g, b] = id
+        .toString()
+        .substr(-3)
+        .split('')
+        .map((e) => e.charCodeAt().toString().substr(-2))
+      const color = `rgb(${r * 1.5}, ${g * 1.5}, ${b * 1.5})`
+      const color2 = `rgb(${r * 3}, ${g * 3}, ${b * 3})`
+      setColorStyle({
+        background: `linear-gradient(137deg, ${color} 21%, ${color2} 97%)`,
+        content: ''
+      })
+    }
+  }, [])
+  // const color16 = '#' + r.toString(16) + g.toString(16) + b.toString(16);
+
+  return (
+    <div style={colorStyle || { colorStyle }} className={`avatar ${className}`}>
+      {!avatar || <img src={avatar ? avatar : noAvatar} alt={`${username} avatar`} />}
+      {!!avatar || <div className='avatar__letter'>{username[0]}</div>}
+      <span className={isOnline ? 'avatar__online' : 'avatar__ofline'}></span>
+    </div >
+  )
+}
+
+Avatar.defaultProps = {
+  id: '',
+  className: '',
+  username: '',
+  isOnline: false
+}
+
+Avatar.propTypes = {
+  avatar: PropTypes.string,
+  className: PropTypes.string,
+  username: PropTypes.string,
+  isOnline: PropTypes.bool
+}
+
+export default Avatar

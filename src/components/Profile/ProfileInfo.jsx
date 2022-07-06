@@ -12,7 +12,7 @@ const ProfileInfo = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('1')
+
     const { name, age, country, city, education, drink, gender, thems } = user
     const userInfo = {
       name, age, country, city, education, drink, gender, thems,
@@ -22,7 +22,7 @@ const ProfileInfo = () => {
 
   const hendleSubmit = (event) => {
     event.preventDefault()
-    console.log('e.target.name', name)
+
   }
 
   return (

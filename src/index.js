@@ -12,7 +12,7 @@ import PeoplesReducer from './reducers/peoples/peoplesReducer'
 import chatReducer from './reducers/chatReducer'
 import userReducer from './reducers/userReducer'
 import personReducer from './reducers/personReducer'
-import messageReducer from './reducers/messageReducer'
+import dialogsReducer from './reducers/dialogsReducer'
 import mailsReducer from './reducers/mailsReducer'
 import mailsFilterReducer from './reducers/mailsFilterReducer'
 import mailsDeleteREducer from './reducers/mailsDeleteREducer'
@@ -41,7 +41,7 @@ const reducer = combineReducers({
   chat: chatReducer,
   visibleUser: personReducer,
 
-  peoplesWithChat: messageReducer,
+  dialogs: dialogsReducer,
 
   mails: mailsReducer,
   mailsFilter: mailsFilterReducer,

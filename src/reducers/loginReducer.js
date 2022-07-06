@@ -32,7 +32,7 @@ export const changePassword = (password) => {
 }
 
 export const login = (password) => {
-  console.log('USER_LOGIN')
+
   return {
     type: 'USER_LOGIN',
     password,

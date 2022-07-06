@@ -3,28 +3,43 @@ import { useDispatch } from 'react-redux'
 import { setWisiblePerson } from '../../reducers/personReducer'
 import './DialogItem.scss'
 import PropTypes from 'prop-types'
-import noAvatar from '../../img/userPhoto.png'
 import Time from './Time'
+import Avatar from './Avatar'
 
-const DialogItem = ( { date, person , username, className, avatar, isOnline, newMessages }) => {
+const DialogItem = ({
+  id,
+  date,
+  person,
+  username,
+  className,
+  avatar,
+  isOnline,
+  newMessages,
+  rating,
+}) => {
 
   const dispatch = useDispatch()
   const setPerson = () => dispatch(setWisiblePerson(person))
 
   return (
     <div onClick={setPerson} className={`dialogs-item ${className}`}>
-      <div className='dialogs-item__photo'>
-        <img src={avatar ? avatar : noAvatar} alt={`${username} avatar`} />
-        <span className={isOnline ? 'dialogs-item__online' : 'dialogs-item__ofline'}></span>
-      </div>
+
+      <Avatar
+        id={id}
+        avatar={avatar}
+        className={'dialogs-item__avatar'}
+        username={username}
+        isOnline={isOnline}
+      />
+
       <div className='dialogs-item__text'>
         <div className='dialogs-item__name'>
           {username}
         </div>
         <div className='dialogs-item__rating'>Member rating
-          <span>{person.rating}</span>
+          <span>{rating}</span>
         </div>
-        <Time date={date} className='dialogs-item__data'/>
+        <Time date={date} className='dialogs-item__data' />
       </div>
       <div className='dialogs-item__new-messages'>
         <span>{(newMessages > 99) ? '99+' : newMessages}</span>

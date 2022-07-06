@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 
-import ChatSpace from '../ChatSpace'
+import ChatSpace from '../Messages/ChatSpace'
 import ChatTextBlock from './ChatTextBlock'
 
 const PersonChat = () => {

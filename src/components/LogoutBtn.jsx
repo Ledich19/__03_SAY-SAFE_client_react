@@ -12,7 +12,6 @@ const LogoutBtn = ({ className }) => {
   const handleLogoun = async (event) => {
     event.preventDefault()
     window.localStorage.removeItem('loggedNoteappUser')
-    console.log('\x1b[42m logout \x1b[0m')
 
     //window.localStorage.clear()
     dispatch(setUser(null))

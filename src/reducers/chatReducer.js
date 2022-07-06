@@ -7,8 +7,7 @@ const counterReducer = (state = initialState, action) => {
 
   switch (action.type) {
   case 'NEW_MESSAGE':
-    console.log(state)
-    console.log(action.data)
+
     return state.concat(action.data)
   default:
     return state

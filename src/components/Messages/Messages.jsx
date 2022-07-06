@@ -1,5 +1,5 @@
 import React from 'react'
-import ChatSpace from '../ChatSpace'
+import ChatSpace from './ChatSpace'
 import ChatTextBlock from '../personPage/ChatTextBlock'
 import MessagePersonInfo from './MessagePersonInfo'
 import DialogsList from './DialogsList'
