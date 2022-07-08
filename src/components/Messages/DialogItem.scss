@@ -1,12 +1,16 @@
 .dialogs-item {
+  position: relative;
+  padding-left: 10px;
+  border-radius: 10px;
   flex: 1 0;
   display: flex;
   width: 100%;
-  height: 70px;
+  height: 60px;
   background: #ccc2c2;
   align-items: center;
   &:hover{
     background: #b4acac;
+    transform: scale(1.05);
   }
 }
 
@@ -19,7 +23,8 @@
 
   &__text {
     flex: 1 0;
-    padding: 10px;
+    padding: 10px 0 ;
+    margin-left: 10px;
     width: 100%;
     font-weight: bold;
   }
@@ -31,7 +36,7 @@
     white-space: nowrap;
     width: 170px;
     display: block;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 10px;
   }
 
@@ -52,21 +57,26 @@
     width: 25px;
     padding: 3px;
     border-radius: 10px;
-    background: rgb(147, 10, 165);
-    border: solid 1px rgb(112, 112, 112);
-    color: rgb(255, 255, 255);
+    background: rgb(240,140,157);
+    border: solid 1px rgb(112, 83, 156);
+    color: rgb(112, 83, 156);
   }
 
   &__data {
+    position: absolute;
+    top: 0;
+    right: 10px;
     display: flex;
     justify-content: flex-end;
     margin-top: 3px;
     font-size: 0.7rem;
+    line-height: 0.7rem;
   }
   &__avatar {
-    height: 100%;
-    width: 80px;
-    font-size: 3rem;
+  border-radius: 50% ;
+    height: 40px;
+    width: 40px;
+    font-size: 2rem;
 
 
   }

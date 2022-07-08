@@ -1,7 +1,7 @@
 import React from 'react'
 import ChatSpace from './ChatSpace'
 import ChatTextBlock from '../personPage/ChatTextBlock'
-import MessagePersonInfo from './MessagePersonInfo'
+import ChatInfo from './ChatInfo'
 import DialogsList from './DialogsList'
 
 const Messages = () => {
@@ -14,7 +14,7 @@ const Messages = () => {
     <div className='worcplatform__chats chats'>
       <DialogsList />
       <div className='chats__chat-space chat-space'>
-        <MessagePersonInfo/>
+        <ChatInfo/>
         <ChatSpace />
         <ChatTextBlock />
       </div>

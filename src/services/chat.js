@@ -1,5 +1,14 @@
 import axios from 'axios'
-const baseUrl = '/api/chat'
+const baseUrl = '/api/gialogs'
+//get all dialogs
+const getAll = () => {
+  const request = axios.get(`${baseUrl}`)
+  return request.then(response => {
+    console.log('dialogs', response)
+    return  response.data})
+}
+
+
 //get chat
 const getById = (id) => {
   const request = axios.get(`${baseUrl}/${id}`)
@@ -18,6 +27,7 @@ const check = () => {
 }
 
 const chatService = {
+  getAll,
   getById,
   create,
   check

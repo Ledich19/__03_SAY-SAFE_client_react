@@ -1,4 +1,8 @@
 .chat-body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  position: relative;
   background: #c7c5c5;
   flex: 1 1 auto;
   overflow: auto;
@@ -7,21 +11,32 @@
   align-items: stretch;
   gap: 5px;
   padding: 0 10px;
+
   &__item {
     max-width: 80%;
     margin-bottom: 5px;
     align-self: start;
   }
-  
+
   &__item._my-massege {
     align-self: end;
     border-radius: 5px 0px 0px 5px;
     flex-direction: row-reverse;
   }
-  
+
   &__footer {
     display: flex;
     flex: 0 0 auto;
     height: 100px;
+  }
+
+  &__no-search {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+    height: 20%;
+    top: 50%;
+    left: 50%;
+
   }
 }

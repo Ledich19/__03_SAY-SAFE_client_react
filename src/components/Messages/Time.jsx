@@ -1,8 +1,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { formatDistanceToNow, format } from 'date-fns'
-import ruLocale from 'date-fns/locale/ru'
+import { format } from 'date-fns'
 
 const Time = ({ date, className }) => {
 
@@ -14,7 +13,7 @@ const Time = ({ date, className }) => {
 
   const wisibleDate = (format(dateOb, 'PP') === format(new Date(), 'PP'))
     ? format(dateOb, 'H:m')
-    : formatDistanceToNow(dateOb, { addSuffix: true, locale: ruLocale })
+    : format(dateOb, 'd LLL y')
 
 
   return (

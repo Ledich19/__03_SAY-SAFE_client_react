@@ -4,17 +4,24 @@ import DialogItem from './DialogItem'
 import './DialogsList.scss'
 import orderBy from 'lodash/orderBy'
 import { BsSearch } from 'react-icons/bs'
+import { useState } from 'react'
+import noResult from '../../img/no-search-results.svg'
+
 
 const dialogsList = () => {
-  const dialogs = useSelector(state => state.dialogs)
+  const [filter, setFilter] = useState('')
+  const dialogs = useSelector(state => state.dialogs
+    .filter((d) => d.personal.username.toLowerCase().indexOf(filter.toLowerCase()) >= 0 ))
   const activeID = useSelector(state => state.visibleUser.id)
 
   return (
     <div className='chats__dialogs dialogs'>
       <form action='#' className=' dialogs__search search'>
         <input
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
           className=' search__input'
-          type='text'
+          type='search'
           name='search'
           autoComplete='off'
           placeholder='Search contact'
@@ -25,20 +32,22 @@ const dialogsList = () => {
       </form>
 
       <div className='dialogs__list'>
-        {orderBy(dialogs, (a) => new Date(a.date), ['desc']).map(dialog =>
-          <DialogItem
-            username={dialog.personal.username}
-            rating={dialog.personal.rating}
-            avatar={dialog.personal.avatar}
-            isOnline={dialog.personal.isOnline}
+        {dialogs.length === 0 ? <img src={noResult} className=' search__no-search' alt='no result' /> : null}
+        {orderBy(dialogs, (a) => new Date(a.date), ['desc'])
+          .map(dialog =>
+            <DialogItem
+              username={dialog.personal.username}
+              rating={dialog.personal.rating}
+              avatar={dialog.personal.avatar}
+              isOnline={dialog.personal.isOnline}
 
-            newMessages={789}
-            id={dialog.id}
-            date={dialog.date}
-            className={dialog.id === activeID ? '_active' : ''}
-            key={dialog.id}
-          />
-        )
+              newMessages={789}
+              id={dialog.id}
+              date={dialog.date}
+              className={dialog.id === activeID ? '_active' : ''}
+              key={dialog.id}
+            />
+          )
 
         }
 
@@ -48,6 +57,15 @@ const dialogsList = () => {
 
 
   )
+}
+
+DialogItem.defaultProps = {
+
+}
+
+DialogItem.propTypes = {
+
+
 }
 
 export default dialogsList

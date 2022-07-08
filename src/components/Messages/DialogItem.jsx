@@ -33,13 +33,13 @@ const DialogItem = ({
       />
 
       <div className='dialogs-item__text'>
+        <Time date={date} className='dialogs-item__data' />
         <div className='dialogs-item__name'>
           {username}
         </div>
         <div className='dialogs-item__rating'>Member rating
           <span>{rating}</span>
         </div>
-        <Time date={date} className='dialogs-item__data' />
       </div>
       <div className='dialogs-item__new-messages'>
         <span>{(newMessages > 99) ? '99+' : newMessages}</span>

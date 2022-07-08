@@ -27,6 +27,12 @@
   font-weight: 600;
   font-style: normal;
 } */
+
+
+$rose-color: rgb(240,140,157);
+$purple: rgb(112, 83, 156);
+
+
 @font-face {
   font-family: "icons";
   font-display: swap;
@@ -79,10 +85,6 @@
 
 ._icon-user-check:before {
   content: "\e975";
-}
-
-._icon-search:before {
-  content: "\e986";
 }
 
 ._icon-cog:before {
@@ -383,7 +385,6 @@ body {
 ._container {
   max-width: 1594px;
   margin: 0 auto;
-  padding: 0 10px;
 }
 
 
@@ -1191,80 +1192,7 @@ border-radius: 50px;
 
 
 
-.header-chat {
-  flex: 0 0 auto;
-  display: flex;
-  background: white;
-  justify-content: space-between;
-  height: 50px;
-  border-bottom: 2px solid #000;
- 
-}
 
-.header-chat__item {
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5px;
-}
-
-.header-chat .people-item__photo {
-  width: 80px;
-  height: 100%;
-}
-
-.header-chat .people-item__photo img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.header-chat .people-item__text {
-  flex: 1 0;
-  align-self: start;
-  margin-left: 20px;
-}
-
-.header-chat .people-item__name {
-  max-width: 300px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-  white-space: nowrap;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.header-chat .people-item__rating {
-  display: block;
-  border: solid 1px #05FF4B;
-  background-color: #71db8f8c;
-  color: #2FDA5F;
-  display: flex;
-  width: 20%;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.header-chat .chat-space__go-to-mail-button {
-  flex: 0 0 auto;
-  align-self: center;
-  padding: 5px;
-  border: solid 1px black;
-  display: flex;
-  height: 30px;
-  width: 20%;
-  align-items: center;
-  cursor: pointer;
-}
-
-.header-chat .chat-space__go-to-mail-button::before {
-  margin-right: 5px;
-  font-size: 25px;
-}
 
 .chat-space {
   display: flex;
@@ -1336,6 +1264,7 @@ border-radius: 50px;
 
 .worcplatform {
   height: calc(100vh - 100px);
+  border-radius: 10px;
 }
 
 .worcplatform__mails {

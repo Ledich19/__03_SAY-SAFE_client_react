@@ -223,8 +223,8 @@ const initialState = [
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-  case 'SET_FILTER':
-    return state
+  case 'SET_DIALOGS':
+    return action.dialogs
   case 'SET_RATING_FROM':
     return state
   default:
@@ -233,10 +233,10 @@ const dialogsReducer = (state = initialState, action) => {
 
 }
 
-export const genderChange = gender => {
+export const setDialogs = dialogs => {
   return {
-    type: 'SET_FILTER',
-    gender,
+    type: 'SET_DIALOGS',
+    dialogs
   }
 }
 

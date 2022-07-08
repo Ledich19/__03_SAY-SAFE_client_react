@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import './ChatSpace.scss'
 import Message from './Message'
+import noResult from '../../img/no-search-results.svg'
 
 const ChatSpace = () => {
 
@@ -20,13 +21,14 @@ const ChatSpace = () => {
         key={'bn fhf hjv'}
         isMe={false}
         isReaded={false}
-        isTyping = {true}
+        isTyping={true}
         avatar={avatar}
 
         username='{i.username}'
         id='hiushntu'
       />
 
+      {chat.length === 0 ? <img src={noResult} className=' chat-body__no-search' alt='no result' /> : null}
       {chat.map(i => {
 
         return (

@@ -1,0 +1,57 @@
+.header-chat {
+}
+.chat-info {
+  border-radius: 10px;
+  padding: 10px;
+
+  flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    border: 1px solid #000;
+
+  &__avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  & .people-item__name {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  // & .people-item__rating {
+  //   display: block;
+  //   border: solid 1px #05FF4B;
+  //   background-color: #71db8f8c;
+  //   color: #2FDA5F;
+  //   display: flex;
+  //   width: 20%;
+  //   height: 30px;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-around;
+  // }
+  
+  &__go-to-mail-button {
+  border-radius: 10px;
+
+    flex: 0 0 auto;
+    align-self: center;
+    padding: 5px;
+    border: solid 1px black;
+    display: flex;
+    height: 30px;
+    width: 20%;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+}
