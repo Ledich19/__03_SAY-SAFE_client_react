@@ -31,6 +31,8 @@ const reducer = combineReducers({
 
   error: errorReducer,
 
+  dialogs: dialogsReducer,
+
   userInfo: userInfoReducer,
   photos: photoListReducer,
   checkedPhoto: photoCheckReducer,
@@ -41,7 +43,6 @@ const reducer = combineReducers({
   chat: chatReducer,
   visibleUser: personReducer,
 
-  dialogs: dialogsReducer,
 
   mails: mailsReducer,
   mailsFilter: mailsFilterReducer,
