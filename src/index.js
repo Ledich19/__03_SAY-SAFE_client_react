@@ -9,10 +9,11 @@ import { createStore , combineReducers } from 'redux'
 import peoplesFilterReducer from './reducers/peoples/peoplesFilterReducer'
 import PeoplesReducer from './reducers/peoples/peoplesReducer'
 
-import chatReducer from './reducers/chatReducer'
-import userReducer from './reducers/userReducer'
-import personReducer from './reducers/personReducer'
 import dialogsReducer from './reducers/dialogsReducer'
+import currentDialogReducer from './reducers/currentDialogReducer'
+import messageReducer from './reducers/messagesReducer'
+
+import userReducer from './reducers/userReducer'
 import mailsReducer from './reducers/mailsReducer'
 import mailsFilterReducer from './reducers/mailsFilterReducer'
 import mailsDeleteREducer from './reducers/mailsDeleteREducer'
@@ -32,6 +33,8 @@ const reducer = combineReducers({
   error: errorReducer,
 
   dialogs: dialogsReducer,
+  currentDialog: currentDialogReducer,
+  messages: messageReducer,
 
   userInfo: userInfoReducer,
   photos: photoListReducer,
@@ -40,8 +43,6 @@ const reducer = combineReducers({
   peoples: PeoplesReducer,
   filter: peoplesFilterReducer,
 
-  chat: chatReducer,
-  visibleUser: personReducer,
 
 
   mails: mailsReducer,

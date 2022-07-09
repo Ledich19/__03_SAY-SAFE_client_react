@@ -2,19 +2,18 @@
 }
 .chat-info {
   border-radius: 10px;
-  padding: 10px;
+  margin-top: 10px;
 
   flex: 0 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
-    border: 1px solid #000;
+    // border: 1px solid #000;
 
   &__avatar {
     height: 40px;
     width: 40px;
-    border-radius: 50%;
+    border-radius: 10px;
   }
   
   & .people-item__name {

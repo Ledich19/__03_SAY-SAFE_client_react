@@ -9,7 +9,6 @@ const Time = ({ date, className }) => {
     return null
   }
   const dateOb = new Date(date)
-  console.log(dateOb)
 
   const wisibleDate = (format(dateOb, 'PP') === format(new Date(), 'PP'))
     ? format(dateOb, 'H:m')

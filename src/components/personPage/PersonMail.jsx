@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { createMail } from '../../reducers/personReducer'
+// import { useDispatch } from 'react-redux'
+// import { createMail } from '../../reducers/currentDialogReducer'
 import SendBlock from '../SendBlock/SendBlock'
 
 
 
 const PersonMail = () => {
   const [mailText, setMailText] = useState('')
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   const setMail = (event) => {
     event.preventDefault()
-    const newText = mailText
+    // const newText = mailText
     setMailText('')
-    dispatch(createMail(newText))
+    // dispatch(createMail(newText))
   }
 
   return (

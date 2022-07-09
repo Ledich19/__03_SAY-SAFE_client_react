@@ -6,7 +6,7 @@ import ChatTextBlock from './ChatTextBlock'
 
 const PersonChat = () => {
   // const userChats = useSelector(state => state.user.chats)
-  // const personalChats = useSelector(state => state.visibleUser.chats)
+  // const personalChats = useSelector(state => state.currentDialogReducer.chats)
   const userChats = [1,2,3,5,6]
   const personalChats = [7,8,4,9,0]
 

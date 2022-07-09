@@ -1,48 +1,40 @@
 
 import { useDispatch } from 'react-redux'
-import { setWisiblePerson } from '../../reducers/personReducer'
+import { setCurrentDialog } from '../../reducers/currentDialogReducer'
 import './DialogItem.scss'
 import PropTypes from 'prop-types'
 import Time from './Time'
 import Avatar from './Avatar'
 
 const DialogItem = ({
-  id,
-  date,
-  person,
-  username,
-  className,
-  avatar,
-  isOnline,
-  newMessages,
-  rating,
+  dialog, className
 }) => {
-
+  // const dialog = useSelector(state => state.dialogs.find(d => d.id === id))
   const dispatch = useDispatch()
-  const setPerson = () => dispatch(setWisiblePerson(person))
+  const onSelectDialog = () => dispatch(setCurrentDialog(dialog.id))
 
   return (
-    <div onClick={setPerson} className={`dialogs-item ${className}`}>
+    <div onClick={onSelectDialog} className={`dialogs-item ${className}`}>
 
       <Avatar
-        id={id}
-        avatar={avatar}
+        id={dialog.id}
+        avatar={dialog.personal.avatar}
         className={'dialogs-item__avatar'}
-        username={username}
-        isOnline={isOnline}
+        username={dialog.personal.username}
+        isOnline={dialog.personal.isOnline}
       />
 
       <div className='dialogs-item__text'>
-        <Time date={date} className='dialogs-item__data' />
+        <Time date={dialog.date} className='dialogs-item__data' />
         <div className='dialogs-item__name'>
-          {username}
+          {dialog.personal.username}
         </div>
         <div className='dialogs-item__rating'>Member rating
-          <span>{rating}</span>
+          <span>{dialog.rating}</span>
         </div>
       </div>
       <div className='dialogs-item__new-messages'>
-        <span>{(newMessages > 99) ? '99+' : newMessages}</span>
+        <span>{(dialog.newMessages > 99) ? '99+' : dialog.newMessages}</span>
       </div>
     </div>
   )

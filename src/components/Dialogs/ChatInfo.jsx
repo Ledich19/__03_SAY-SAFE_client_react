@@ -1,14 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+
 import Avatar from './Avatar'
 import './ChatInfo.scss'
 
 
-const ChatInfo = () => {
-
-  const person = useSelector(state => state.dialogs)
-  const { personal, id } = person[0]
-  const { username, isOnline, avatar } = personal
+const ChatInfo = ({ isOnline, avatar, username, id }) => {
 
   return (
     <div className='chat-info'>
@@ -27,6 +23,13 @@ const ChatInfo = () => {
       <button className='chat-info__go-to-mail-button'>GO TO MAIL</button>
     </div>
   )
+}
+
+Avatar.defaultProps = {
+  id: '',
+  username: '',
+  avatar: '',
+  isOnline: false,
 }
 
 export default ChatInfo

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import SendBlock from '../SendBlock/SendBlock'
 
 import { useDispatch } from 'react-redux'
-import { createMessage } from '../../reducers/chatReducer'
+
 
 const ChatTextBlock = () => {
   const [text, setText] = useState('')
@@ -14,7 +14,7 @@ const ChatTextBlock = () => {
     event.preventDefault()
     const newText = text
     setText('')
-    dispatch(createMessage(newText))
+    dispatch((newText))
   }
 
   return (

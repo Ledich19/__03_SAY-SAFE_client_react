@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useMatch } from 'react-router-dom'
-import { setWisiblePerson } from '../../reducers/personReducer'
+import { setCurrentDialog } from '../../reducers/currentDialogReducer'
 import Button from '../Button'
 import PersonChat from './PersonChat'
 import PersonFace from './PersonFace'
@@ -25,11 +25,11 @@ const PersonPage = () => {
     : null
   useEffect(() => {
     if (person) {
-      dispatch(setWisiblePerson(person))
+      dispatch(setCurrentDialog(person))
     }
 
     personalService.getById(match.params.id)
-      .then(person => dispatch(setWisiblePerson(person)))
+      .then(person => dispatch(setCurrentDialog(person)))
 
   },[])
 

@@ -1,12 +1,31 @@
 import axios from 'axios'
-const baseUrl = '/api/gialogs'
+const baseUrl = '/api/dialogs'
+
+let token = null
+const setToken = newToken => {
+  token = `bearer ${newToken}`
+}
+
 //get all dialogs
 const getAll = () => {
-  const request = axios.get(`${baseUrl}`)
+  const config = {
+    headers: { Authorization: token },
+  }
+  const request = axios.get(`${baseUrl}`,config)
   return request.then(response => {
-    console.log('dialogs', response)
     return  response.data})
 }
+
+//get all messages by dialod id
+const getAllMessagesByID = (id) => {
+  const config = {
+    headers: { Authorization: token },
+  }
+  const request = axios.get(`${baseUrl}/messages/${id}`, config)
+  return request.then(response => {
+    return  response.data})
+}
+
 
 
 //get chat
@@ -26,11 +45,13 @@ const check = () => {
   return request.then(response => response.data)
 }
 
-const chatService = {
+const dialogsService = {
+  getAllMessagesByID,
+  setToken,
   getAll,
   getById,
   create,
   check
 }
 
-export default chatService
+export default dialogsService

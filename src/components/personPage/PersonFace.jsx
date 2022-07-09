@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import noImage from '../../img/no-image.svg'
 
 const PersonFace = () => {
-  const{ avatar , isOnline , id , raiting , name } = useSelector(state => state.visibleUser)
+  const{ avatar , isOnline , id , raiting , name } = useSelector(state => state.currentDialogReducer)
 
   return (
     <div className='workplace__info'>

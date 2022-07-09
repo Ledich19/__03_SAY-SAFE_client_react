@@ -1,7 +1,6 @@
 
 import './Avatar.scss'
 import PropTypes from 'prop-types'
-import noAvatar from '../../img/userPhoto.png'
 import { useEffect } from 'react'
 import { useState } from 'react'
 
@@ -26,13 +25,16 @@ const Avatar = ({ username, avatar, isOnline, className, id }) => {
         content: ''
       })
     }
-  }, [])
+  }, [id])
   // const color16 = '#' + r.toString(16) + g.toString(16) + b.toString(16);
 
   return (
     <div style={colorStyle || { colorStyle }} className={`avatar ${className}`}>
-      {!avatar || <img src={avatar ? avatar : noAvatar} alt={`${username} avatar`} />}
-      {!!avatar || <div className='avatar__letter'>{username[0]}</div>}
+      {
+        avatar
+          ? <img src={avatar} alt={`${username} avatar`} />
+          : <div className='avatar__letter'>{username[0]}</div>
+      }
       <span className={isOnline ? 'avatar__online' : 'avatar__ofline'}></span>
     </div >
   )
@@ -42,7 +44,8 @@ Avatar.defaultProps = {
   id: '',
   className: '',
   username: '',
-  isOnline: false
+  isOnline: false,
+  avatar: '',
 }
 
 Avatar.propTypes = {
