@@ -2,7 +2,9 @@ import React from 'react'
 import { useEffect } from 'react'
 
 import ChatSpace from '../Dialogs/ChatSpace'
-import ChatTextBlock from './ChatTextBlock'
+import ChatTextBlock from '../Dialogs/ChatTextBlock'
+
+
 
 const PersonChat = () => {
   // const userChats = useSelector(state => state.user.chats)

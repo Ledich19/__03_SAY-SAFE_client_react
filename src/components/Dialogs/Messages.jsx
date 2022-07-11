@@ -1,6 +1,6 @@
 import React from 'react'
 import ChatSpace from './ChatSpace'
-import ChatTextBlock from '../personPage/ChatTextBlock'
+import ChatTextBlock from './ChatTextBlock'
 import ChatInfo from './ChatInfo'
 import DialogsList from './DialogsList'
 import { useDispatch, useSelector } from 'react-redux'

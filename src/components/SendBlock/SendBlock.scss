@@ -4,7 +4,7 @@
   justify-content: space-between;
   flex-direction: column;
   gap: 5px;
-  
+
   &__send-button {
     display: flex;
     justify-content: center;
@@ -20,20 +20,25 @@
     gap: 5px;
   }
 
-  &__smile, &__add-document{
+ 
+  &__add-document {
     display: inline-flex;
     text-align: center;
     font-size: 25px;
     padding: 5px;
-    border-radius: 50%;
-    background: rgb(156, 156, 156);
-    border: solid 1px rgb(138, 137, 137);
+    border-radius: 10px;
+    background: #ffffff;
+    border: solid 1px #8a8989;
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
-  &__add-document {
-   
-  }
-  &__smile {
-   color: yellow;
-  }
+  &__add-document {}
+
+  
+
 }

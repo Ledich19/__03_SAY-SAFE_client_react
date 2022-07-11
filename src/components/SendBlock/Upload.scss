@@ -1,0 +1,20 @@
+.upload {
+  display: none;
+  &__label {
+    display: inline-flex;
+    text-align: center;
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: solid 1px #8a8989;
+    cursor: pointer;
+    opacity: 0.5;
+    &:hover{
+      opacity: 1;
+    }
+  }
+  &__input{
+    display: none;
+  }
+}

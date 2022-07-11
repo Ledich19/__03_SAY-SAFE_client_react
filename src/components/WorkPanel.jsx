@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from './Button'
-import SendBlock from './SendBlock/SendBlock'
+
 
 import { Link } from 'react-router-dom'
 
@@ -25,7 +25,7 @@ const WorkPanel = ({ notifications }) => {
 
         </div>
       </div>
-      <SendBlock />
+
     </div>
   )
 }

@@ -1,0 +1,55 @@
+.emoji {
+  $self: &;
+  position: relative;
+
+  & ._active {
+    #{$self}__smile-icon {
+        color: rgb(255, 251, 0);
+        background: #000;
+    }
+    #{$self}__smile {
+      opacity: 1;
+    }
+  }
+
+  &__block {
+    position: absolute;
+    bottom: 130%;
+    right: 0;
+  }
+
+  &__smile {
+    color: rgb(177, 177, 30);
+    display: inline-flex;
+    text-align: center;
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: solid 1px #8a8989;
+    cursor: pointer;
+    // opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+
+  }
+
+  &__smile-icon {
+    border-radius: 50%;
+
+
+    &:hover {
+      color: rgb(255, 251, 0);
+      background: #000;
+    }
+  }
+
+
+  &__smile {}
+
+  .emoji-picker-react {
+    border-radius: 10px;
+  }
+}

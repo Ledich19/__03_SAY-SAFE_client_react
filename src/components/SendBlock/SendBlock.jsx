@@ -1,21 +1,21 @@
 import React from 'react'
-import { BsFillEmojiSmileFill } from 'react-icons/bs'
-import { AiOutlinePaperClip } from 'react-icons/ai'
+
+import Emoji from './Emoji'
 import './SendBlock.scss'
+import Upload from './Upload'
 
 const SendBlock = () => {
   return (
     <div className='send-block'>
-      <button type='submit' className='send-block__send-button'>SEND</button>
+      {/* <button type='submit' className='send-block__send-button'>SEND</button> */}
       <div className='send-block__btn-block'>
-        <button type='button'
-          className='send-block__smile'>
-          <BsFillEmojiSmileFill />
-        </button>
-        <button type='button'
+        <Emoji onEmojiSelect={console.log} />
+
+        <Upload />
+        {/* <button type='button'
           className='send-block__add-document'>
           <AiOutlinePaperClip />
-        </button>
+        </button> */}
       </div>
     </div>
   )
