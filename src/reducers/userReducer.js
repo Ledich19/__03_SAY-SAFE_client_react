@@ -2,7 +2,6 @@ const initialState = null
 
 const userReducer = (state = initialState, action) => {
 
-
   switch (action.type) {
   case 'APDATE_USER_INFO':
     return state

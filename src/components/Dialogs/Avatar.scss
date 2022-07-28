@@ -4,14 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
   & img {
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
   &__online {
-  
     border-radius: 50%;
     position: absolute;
     content: '';
@@ -19,7 +17,6 @@
     width: 10px;
     background: rgb(5, 240, 5);
     bottom: 2px;
-    
     right: 1px;
   }
   &__letter{

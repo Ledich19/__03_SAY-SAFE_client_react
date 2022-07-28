@@ -18,18 +18,17 @@
     resize: none;
   }
   &__send{
-    border-left: 1px solid rgba(0, 0, 0, 0.144);
-    height: 15px;
-    background: rgba(0, 0, 0, 0);
     position: absolute;
-    right: 0;
-    bottom: 50%;
-    transform: translatey(50%);
     height: 100%;
-    width: 60px;
+    width: 33px;
+    border-left: 1px solid rgba(0, 0, 0, 0.144);
+    background: rgba(0, 0, 0, 0);
+    right: 0;
+   
   }
   &__send-icon{
-    font-size: 25px;
+    border-radius: 0;
+    font-size: 1.5rem;
     color: purple;
   }
 }

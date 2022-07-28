@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../img/logo.svg'
 import head from '../../img//heand-for-logo.jpg'
+import './About.scss'
 
 const About = () => {
   // useEffect(() => {
@@ -26,8 +27,8 @@ const About = () => {
 
   return (
     <div className='face-page'>
-      <div className='face-page__body body-face-page'>
-        <div className='body-face-page__img face-page-img'>
+      <div className='face-page__header'>
+        <div className='face-page-img'>
           <div className='face-page-img__logo'>
             <img src={logo} alt='image description' />
           </div>
@@ -35,15 +36,14 @@ const About = () => {
             <img src={head} alt='image description' />
           </div>
         </div>
-        <h1 className='body-face-page__title'>Phighology sites </h1>
-        <div></div>
+        <h1 className='face-page__title'>Phighology sites </h1>
       </div>
 
-      <div className='face-page__description'>On our site you can talk all abouy that warry you
-        why we?
-        you can choise the best face of doctor you like and talk with him </div>
+      <div className='face-page__description'>
+        On our site you can tell about everything that worries you? You can choose the best doctor you like and talk to him.
+      </div>
 
-      <div className='face-page__about-as about-as'>
+      <div className='about-as'>
 
         <div className='about-as__block'>
           <div className='about-as__block-title'>Our Principles</div>

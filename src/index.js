@@ -23,14 +23,14 @@ import photoListReducer from './reducers/profileReducers/photoListReducer'
 import photoCheckReducer from './reducers/profileReducers/photoCheckReducer'
 import loginReducer from './reducers/loginReducer'
 import registrationReducer from './reducers/facePage/registrationReducer'
-import errorReducer from './reducers/errorReducer'
+import notifyReducer from './reducers/notifyReducer'
 
 const reducer = combineReducers({
   user: userReducer,
   login: loginReducer,
   registration: registrationReducer,
 
-  error: errorReducer,
+  notify: notifyReducer,
 
   dialogs: dialogsReducer,
   currentDialog: currentDialogReducer,

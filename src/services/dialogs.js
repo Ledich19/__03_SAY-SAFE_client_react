@@ -21,11 +21,10 @@ const getAllMessagesByID = (id) => {
   const config = {
     headers: { Authorization: token },
   }
-  const request = axios.get(`${baseUrl}/messages/${id}`, config)
+  const request = axios.get(`${baseUrl}/${id}`, config)
   return request.then(response => {
     return  response.data})
 }
-
 
 
 //get chat

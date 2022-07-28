@@ -2,13 +2,15 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
-import FacePage from './components/FacePage/FacePage'
+import StartPage from './components/StartPage/StartPage'
 import Header from './components/Header/Header'
 import WorkPanel from './components/WorkPanel'
 import Workplace from './components/Workplace'
 import { setUser } from './reducers/userReducer'
 import peoplesService from './services/personal'
+import dialodsService from './services/dialogs'
 import userService from './services/user'
+import { useNavigate } from 'react-router-dom'
 
 // import axios from 'axios'
 
@@ -27,15 +29,24 @@ import userService from './services/user'
 
 function App({ store }) {
   const  user = useSelector(state => state.user)
-
   const dispatch = useDispatch()
+  const getMyInfo = async () => {
+    const userData = await userService.getMe()
+    console.log('userData', userData)
+    dispatch(setUser(userData))
+  }
+  const navigate = useNavigate()
+
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedNoteappUser')
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
       dispatch(setUser(user))
+      { navigate('/personal') }
       peoplesService.setToken(user.token)
+      dialodsService.setToken(user.token)
       userService.setToken(user.token)
+      getMyInfo()
     }
   }, [])
 
@@ -72,10 +83,10 @@ function App({ store }) {
       </div>
     )
   } else {
-    return <FacePage />
+    return  <div className="App work-platform">
+      <StartPage/>
+    </div>
   }
-
-
 }
 
 export default App

@@ -2,15 +2,8 @@
   $self: &;
   position: relative;
 
-  & ._active {
-    #{$self}__smile-icon {
-        color: rgb(255, 251, 0);
-        background: #000;
-    }
-    #{$self}__smile {
-      opacity: 1;
-    }
-  }
+
+
 
   &__block {
     position: absolute;
@@ -19,27 +12,31 @@
   }
 
   &__smile {
+    height: 100%;
+    &._active {
+      opacity: 1;
+    }
     color: rgb(177, 177, 30);
     display: inline-flex;
+    align-items: center;
     text-align: center;
-    font-size: 25px;
+    font-size: 1.5rem;
     padding: 5px;
-    border-radius: 10px;
     background: #ffffff;
     border: solid 1px #8a8989;
     cursor: pointer;
-    // opacity: 0.5;
-
+    opacity: 0.5;
     &:hover {
       opacity: 1;
     }
-
   }
 
   &__smile-icon {
     border-radius: 50%;
-
-
+    ._active & {
+      color: rgb(255, 251, 0);
+      background: #000;
+    }
     &:hover {
       color: rgb(255, 251, 0);
       background: #000;

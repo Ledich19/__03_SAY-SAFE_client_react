@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import dialogsService from '../../services/dialogs'
 import { setDialogs, setIsLoading, setMessages } from '../../reducers/dialogsReducer'
-import { setErrorMessage } from '../../reducers/errorReducer'
+import { setNotifyMessage } from '../../reducers/notifyReducer'
 
 
 const Messages = () => {
@@ -26,9 +26,9 @@ const Messages = () => {
         dispatch(setDialogs(dialogs))
       }
       catch (exception) {
-        dispatch(setErrorMessage('Wrong credentials'))
+        dispatch(setNotifyMessage('Wrong credentials'))
         setTimeout(() => {
-          dispatch(setErrorMessage(null))
+          dispatch(setNotifyMessage(null))
         }, 5000)
       }
     }
@@ -45,9 +45,9 @@ const Messages = () => {
       }
       catch (exception) {
         dispatch(setIsLoading(false))
-        dispatch(setErrorMessage('Wrong credentials'))
+        dispatch(setNotifyMessage('Wrong credentials'))
         setTimeout(() => {
-          dispatch(setErrorMessage(null))
+          dispatch(setNotifyMessage(null))
         }, 5000)
       }
     }
@@ -62,9 +62,9 @@ const Messages = () => {
   //       dispatch(setCurrentDialog(dialog))
   //     }
   //     catch (exception) {
-  //       dispatch(setErrorMessage('Wrong credentials'))
+  //       dispatch(setNotifyMessage('Wrong credentials'))
   //       setTimeout(() => {
-  //         dispatch(setErrorMessage(null))
+  //         dispatch(setNotifyMessage(null))
   //       }, 5000)
   //     }
   //   }

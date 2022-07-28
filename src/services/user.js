@@ -7,11 +7,19 @@ const setToken = newToken => {
   token = `bearer ${newToken}`
 }
 
+//получить все даные юзера
+const getMe = () => {
+  const config = {
+    headers: { Authorization: token },
+  }
+  const request = axios.get(`${baseUrl}/me`, config)
+  return request.then(response => response.data)
+}
+
 const update = (id, newObject) => {
   const config = {
     headers: { Authorization: token },
   }
-
   const request = axios.put(`${baseUrl}/${id}`, newObject, config )
   return request.then(response => response.data)
 }
@@ -28,6 +36,7 @@ const follow = (id, newObject) => {
 }
 
 const userService = {
+  getMe,
   update,
   setToken,
   follow

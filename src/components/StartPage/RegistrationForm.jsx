@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../img/logo.svg'
-import { setErrorMessage } from '../../reducers/errorReducer'
+import { setNotifyMessage } from '../../reducers/notifyReducer'
 // import { changeRegistrationEmail, changeRegistrationRassword, changeRegistrationRepeadPassword, changeRegistrationUsername } from '../../reducers/facePage/registrationReducer'
 import registrationService from '../../services/registration'
 import './RegistrationForm.scss'
@@ -20,9 +20,9 @@ const RegistrationForm = () => {
   //   event.preventDefault()
 
   //   // if (password !== repeatPassword) {
-  //   //   dispatch(setErrorMessage('should be the same should be the same password'))
+  //   //   dispatch(setNotifyMessage('should be the same should be the same password'))
   //   //   setTimeout(() => {
-  //   //     dispatch(setErrorMessage(null))
+  //   //     dispatch(setNotifyMessage(null))
   //   //     console.log(errorMessage)
   //   //   }, 3000)
   //   //   return
@@ -38,27 +38,19 @@ const RegistrationForm = () => {
   //     dispatch(changeRegistrationRepeadPassword(''))
   //     { navigate('/login') }
   //   } catch (exception) {
-  //     dispatch(setErrorMessage('Wrong credentials'))
+  //     dispatch(setNotifyMessage('Wrong credentials'))
   //     setTimeout(() => {
-  //       dispatch(setErrorMessage(null))
+  //       dispatch(setNotifyMessage(null))
   //     }, 5000)
   //   }
 
   //   console.log('handleRegistration')
   // }
-
-
-
   return (
-
-
-
     <div className="registration">
-
       <div className="info-page__logo">
         <img src={logo} alt="image description" />
       </div>
-
       <Formik
         initialValues={{ email: '', password: '', username: '' }}
         validate={values => {
@@ -85,10 +77,8 @@ const RegistrationForm = () => {
           } else if (
             !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/i.test(values.password)
           ) {
-            errors.password = 'only latin letters and numbers can be used'
+            errors.password = 'only latin letters and numbers mast be used'
           }
-
-
           return errors
         }}
         onSubmit={ async (values, { setSubmitting }) => {
@@ -99,9 +89,9 @@ const RegistrationForm = () => {
             })
             { navigate('/login') }
           } catch (exception) {
-            dispatch(setErrorMessage('Wrong credentials'))
+            dispatch(setNotifyMessage('Wrong credentials'))
             setTimeout(() => {
-              dispatch(setErrorMessage(null))
+              dispatch(setNotifyMessage(null))
             }, 5000)
           }
 
@@ -123,8 +113,6 @@ const RegistrationForm = () => {
         }) => (
           <form onSubmit={handleSubmit} className='registration__form'>
             {errorMessage !== null && <div className={` registration__item ${typeMassage}`}>{errorMessage}</div>}
-
-
             <div>
               <div className='registration__error'>
                 {errors.username && touched.username && errors.username}
@@ -140,7 +128,6 @@ const RegistrationForm = () => {
                 value={values.username}
               />
             </div>
-
             <div>
               <div className='registration__error'>
                 {errors.email && touched.email && errors.email}
@@ -155,7 +142,6 @@ const RegistrationForm = () => {
                 className='registration__item'
                 placeholder='email' />
             </div>
-
             <div>
               <div className='registration__error'>
                 {errors.password && touched.password && errors.password}
@@ -170,28 +156,18 @@ const RegistrationForm = () => {
                 className='registration__item'
                 placeholder='password' />
             </div>
-
-
             <input
               value={repeatPassword}
               onChange={() => console.log()}
               name='repeat-password'
               type='password'
               className='registration__item'
-
               placeholder='repeat password' />
-
-
             <button type='submit' disabled={isSubmitting} className='registration__btn registration__item'>registration</button>
           </form >
-
         )}
       </Formik>
-
-
-
     </div >
-
   )
 }
 

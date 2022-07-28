@@ -1,21 +1,21 @@
-.header-chat {
-}
+.header-chat {}
+
 .chat-info {
   border-radius: 10px;
-  margin-top: 10px;
+  padding: 10px 10px 10px 0px;
 
   flex: 0 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // border: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // border: 1px solid #000;
 
   &__avatar {
     height: 40px;
     width: 40px;
     border-radius: 10px;
   }
-  
+
   & .people-item__name {
     max-width: 300px;
     overflow: hidden;
@@ -25,7 +25,44 @@
     font-size: 25px;
     font-weight: bold;
   }
-  
+
+  &__info {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__name {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  &__online {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+  }
+
+  &__indicate {
+    display: block;
+    content: '';
+    height: 7.5px;
+    width: 7.5px;
+    background: rgb(95, 93, 93);
+    &.online{
+      background: rgb(20, 235, 31);
+      
+    }
+  }
+
+  &__word {
+    font-size: 0.75rem;
+    color:gray;
+  }
+
   // & .people-item__rating {
   //   display: block;
   //   border: solid 1px #05FF4B;
@@ -38,19 +75,16 @@
   //   align-items: center;
   //   justify-content: space-around;
   // }
-  
-  &__go-to-mail-button {
-  border-radius: 10px;
 
-    flex: 0 0 auto;
-    align-self: center;
-    padding: 5px;
-    border: solid 1px black;
+  &__button {
     display: flex;
-    height: 30px;
-    width: 20%;
     align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    height: 100%;
+    width: 40px;
+    // border: solid 1px black;
     cursor: pointer;
   }
-  
+
 }

@@ -1,0 +1,22 @@
+.header{
+  /* background-image: url(../img/header-fon.jpg); */
+  background-repeat: repeat;
+  background-size: 30%;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 10px;
+    background-color: #07022cdc;
+    margin-bottom: 10px;
+  }
+  
+  .work-platform__header {
+  }
+  
+  &__efect {
+  }
+}
+

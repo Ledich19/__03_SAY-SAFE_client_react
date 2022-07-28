@@ -1,11 +1,15 @@
 .send-block {
   height: 100%;
   display: flex;
+  flex-direction: row;
+  padding: 0 10px;
   justify-content: space-between;
-  flex-direction: column;
+  gap: 5px;
   gap: 5px;
 
+
   &__send-button {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,27 +19,22 @@
     padding: 5px;
   }
 
-  &__btn-block {
-    display: flex;
-    gap: 5px;
-  }
-
  
-  &__add-document {
-    display: inline-flex;
-    text-align: center;
-    font-size: 25px;
-    padding: 5px;
-    border-radius: 10px;
-    background: #ffffff;
-    border: solid 1px #8a8989;
-    cursor: pointer;
-    opacity: 0.5;
+  // &__add-document {
+  //   display: inline-flex;
+  //   text-align: center;
+  //   font-size: 25px;
+  //   padding: 5px;
+  //   border-radius: 10px;
+  //   background: #ffffff;
+  //   border: solid 1px #8a8989;
+  //   cursor: pointer;
+  //   opacity: 0.5;
 
-    &:hover {
-      opacity: 1;
-    }
-  }
+  //   &:hover {
+  //     opacity: 1;
+  //   }
+  // }
 
   &__add-document {}
 

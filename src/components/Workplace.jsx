@@ -9,13 +9,15 @@ import Peoples from './Personals/Peoples'
 import PersonPage from './personPage/PersonPage'
 import Profile from './Profile/Profile'
 import ProfileSetting from './ProfileSetting/ProfileSetting'
+import ErrorMessage from './NotifyComponent'
 
 const Workplace = () => {
 
   return (
     <div className="work-platform__workplace">
+      <ErrorMessage/>
       <Routes>
-        <Route path="/persons/:id" element={<PersonPage/>} />
+        <Route path="/personal/:id" element={<PersonPage/>} />
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/pfofile" element={<Profile />} />
         <Route path="/setting" element={<ProfileSetting />} />
@@ -23,7 +25,7 @@ const Workplace = () => {
         <Route path="/messages" element={<Messages />} />
         <Route path="/mail" element={<Mails />} />
         <Route path="/credits" element={<Payment />} />
-        <Route path="/" element={<Peoples />} />
+        <Route path="/personal" element={<Peoples />} />
       </Routes>
     </div>
   )
