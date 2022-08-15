@@ -11,8 +11,7 @@ import { Formik } from 'formik'
 
 
 const RegistrationForm = () => {
-  const { repeatPassword, } = useSelector(state => state.registration)
-  const { typeMassage, errorMessage } = useSelector(state => state.error)
+  const notify = useSelector(state => state.notify)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -52,7 +51,7 @@ const RegistrationForm = () => {
         <img src={logo} alt="image description" />
       </div>
       <Formik
-        initialValues={{ email: '', password: '', username: '' }}
+        initialValues={{ email: '', password: '', username: '' , repeatPassword: '' }}
         validate={values => {
           const errors = {}
 
@@ -79,15 +78,24 @@ const RegistrationForm = () => {
           ) {
             errors.password = 'only latin letters and numbers mast be used'
           }
+
+          if (values.repeatPassword !== values.password) {
+            errors.repeatPassword = 'passwords must match'
+          }
+
           return errors
         }}
+
         onSubmit={ async (values, { setSubmitting }) => {
           const { username, password, email } = values
           try {
             await registrationService.registration({
               username, password, email
             })
+
             { navigate('/login') }
+
+
           } catch (exception) {
             dispatch(setNotifyMessage('Wrong credentials'))
             setTimeout(() => {
@@ -96,7 +104,7 @@ const RegistrationForm = () => {
           }
 
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
+            alert(JSON.stringify(values, null, 2), 'Check your email')
             setSubmitting(false)
           }, 5000)
         }}
@@ -112,7 +120,7 @@ const RegistrationForm = () => {
           /* and other goodies */
         }) => (
           <form onSubmit={handleSubmit} className='registration__form'>
-            {errorMessage !== null && <div className={` registration__item ${typeMassage}`}>{errorMessage}</div>}
+            {notify !== null && <div className={` registration__item ${notify.typeMassage}`}>{notify.errorMessage}</div>}
             <div>
               <div className='registration__error'>
                 {errors.username && touched.username && errors.username}
@@ -151,18 +159,28 @@ const RegistrationForm = () => {
                 name='password'
                 type='password'
                 onBlur={handleBlur}
-                onChange={handleChange}
                 value={values.password}
+                onChange={handleChange}
                 className='registration__item'
                 placeholder='password' />
             </div>
-            <input
-              value={repeatPassword}
-              onChange={() => console.log()}
-              name='repeat-password'
-              type='password'
-              className='registration__item'
-              placeholder='repeat password' />
+
+            <div>
+              <div className='registration__error'>
+                {errors.repeatPassword && touched.repeatPassword && errors.repeatPassword}
+              </div>
+              <input
+                id="repeatPassword"
+                name='repeatPassword'
+                className='registration__item'
+                type='password'
+                placeholder='repeat password'
+                onBlur={handleBlur}
+                value={values.repeatPassword}
+                onChange={handleChange}
+              />
+            </div>
+
             <button type='submit' disabled={isSubmitting} className='registration__btn registration__item'>registration</button>
           </form >
         )}
