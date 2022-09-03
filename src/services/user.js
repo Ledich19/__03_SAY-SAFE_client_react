@@ -35,11 +35,18 @@ const follow = (id, newObject) => {
 
 }
 
+//верификация по имейл
+const verify = (hash) => {
+  const request = axios.get(`${baseUrl}/verify?hash=${hash}`)
+  return request.then(response => response.data)
+}
+
 const userService = {
   getMe,
   update,
   setToken,
-  follow
+  follow,
+  verify
 }
 
 export default userService

@@ -30,7 +30,8 @@ const LoginForm = () => {
       dispatch(setUser(user))
       peoplesService.setToken(user.token)
       userService.setToken(user.token)
-
+      peoplesService.setToken(user.token)
+      userService.setToken(user.token)
       dispatch(setNotifyMessage({
         type: 'success',
         title: 'authorization successful',

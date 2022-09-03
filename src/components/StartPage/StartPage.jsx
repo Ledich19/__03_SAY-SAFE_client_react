@@ -8,6 +8,7 @@ import Price from './Price'
 import StartHeader from './StartHeader'
 import './StartPage.scss'
 import ErrorMessage from '../NotifyComponent'
+import RenderTextInfo from './RenderTextInfo'
 
 const StartPage = () => {
   return (
@@ -21,6 +22,7 @@ const StartPage = () => {
         <Route path='/registration' element={<RegistrationForm />} />
         <Route path='/product' element={<Product />} />
         <Route path='/prices' element={<Price />} />
+        <Route path='/verify' element={<RenderTextInfo /> } />
 
         {/* <Route path='/home' element={<LoginForm />} /> */}
       </Routes>

@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import Favorite from './Favorite/Favorite'
 import Mails from './Mails/Mails'
-import Messages from './Dialogs/Messages'
+import Dialogs from './Dialogs/Dialogs'
 import Payment from './Payment/Payment'
 import Peoples from './Personals/Peoples'
 import PersonPage from './personPage/PersonPage'
@@ -22,7 +22,7 @@ const Workplace = () => {
         <Route path="/pfofile" element={<Profile />} />
         <Route path="/setting" element={<ProfileSetting />} />
         <Route path="/payment" element={<Payment />} />
-        <Route path="/messages" element={<Messages />} />
+        <Route path="/dialogs" element={<Dialogs />} />
         <Route path="/mail" element={<Mails />} />
         <Route path="/credits" element={<Payment />} />
         <Route path="/personal" element={<Peoples />} />

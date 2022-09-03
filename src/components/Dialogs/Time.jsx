@@ -9,11 +9,9 @@ const Time = ({ date, className }) => {
     return null
   }
   const dateOb = new Date(date)
-
   const wisibleDate = (format(dateOb, 'PP') === format(new Date(), 'PP'))
     ? format(dateOb, 'H:m')
     : format(dateOb, 'd LLL y')
-
 
   return (
     <time className={`${className}`}>
@@ -27,7 +25,6 @@ const Time = ({ date, className }) => {
 Time.defaultProps = {
   date: '',
 }
-
 Time.propTypes = {
   data: PropTypes.string
 }

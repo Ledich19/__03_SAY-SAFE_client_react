@@ -4,12 +4,8 @@ import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 import { useState } from 'react'
 
-
 const Avatar = ({ username, avatar, isOnline, className, id }) => {
   const [colorStyle, setColorStyle] = useState('')
-  // function getRandomInt(max) {
-  //   return Math.floor(Math.random() * max)
-  // }
 
   useEffect(() => {
     if (!avatar) {
@@ -26,7 +22,6 @@ const Avatar = ({ username, avatar, isOnline, className, id }) => {
       })
     }
   }, [id])
-  // const color16 = '#' + r.toString(16) + g.toString(16) + b.toString(16);
 
   return (
     <div style={colorStyle || { colorStyle }} className={`avatar ${className}`}>

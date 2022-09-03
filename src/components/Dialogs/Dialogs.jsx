@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import dialogsService from '../../services/dialogs'
 import { setDialogs, setIsLoading, setMessages } from '../../reducers/dialogsReducer'
 import { setNotifyMessage } from '../../reducers/notifyReducer'
+import './Dialogs.scss'
 
 
 const Messages = () => {
@@ -54,23 +55,6 @@ const Messages = () => {
     getMessages()
   }, [currentDialog])
 
-  // useEffect(() => {
-  //   async function getMessages() {
-  //     console.log('getDialoghgy')
-  //     try {
-  //       const dialog = await dialogsService.getAllMessagesByID ()
-  //       dispatch(setCurrentDialog(dialog))
-  //     }
-  //     catch (exception) {
-  //       dispatch(setNotifyMessage('Wrong credentials'))
-  //       setTimeout(() => {
-  //         dispatch(setNotifyMessage(null))
-  //       }, 5000)
-  //     }
-  //   }
-  //   getMessages()
-  // }, [currentDialog])
-
   return (
     <div className='worcplatform__chats chats'>
       <DialogsList />
@@ -83,11 +67,10 @@ const Messages = () => {
         />
         <ChatSpace
           messages={dialogByID ? dialogByID.messages : [] }
-          dialogId={ dialogByID ? dialogByID.id : '' }
+          personal={ dialogByID ? dialogByID.personal : '' }
           isLoadid={true}
         />
-        <ChatTextBlock
-        />
+        <ChatTextBlock/>
       </div>
     </div>
   )

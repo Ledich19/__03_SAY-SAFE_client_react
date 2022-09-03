@@ -11,7 +11,6 @@ const ChatInfo = ({ isOnline, avatar, username, id }) => {
       <Avatar
         username={username}
         avatar={avatar}
-        // isOnline={isOnline}
         id={id}
         className='chat-info__avatar'
       />
@@ -24,10 +23,6 @@ const ChatInfo = ({ isOnline, avatar, username, id }) => {
           </span>
         </div>
       </div>
-      {/* <div className='people-item__photo'>
-          <img src={photo} alt='image description' />
-        </div> */}
-
       <button className='chat-info__button'>...</button>
     </div>
   )

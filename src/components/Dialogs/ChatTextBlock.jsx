@@ -1,23 +1,30 @@
 import React, { useState } from 'react'
 import SendBlock from '../SendBlock/SendBlock'
 import './ChatTextBlock.scss'
-import { useDispatch } from 'react-redux'
-import {  FiSend } from 'react-icons/fi'
+// import { useDispatch } from 'react-redux'
+import { FiSend } from 'react-icons/fi'
+import messageService from '../../services/messages'
+import { useSelector } from 'react-redux'
+
 const ChatTextBlock = () => {
   const [text, setText] = useState('')
-  const dispatch = useDispatch()
+  const dialogId = useSelector(state => state.currentDialog)
 
-  const addMassage = (event) => {
+  const addMassage = async (event) => {
     console.log('jhjgfhjg')
-
     event.preventDefault()
-    const newText = text
+    const message = {
+      dialogId,
+      text: text,
+      atachments: [],
+      type: 'text'
+    }
+    console.log(message)
+    await messageService.create(message)
     setText('')
-    dispatch((newText))
   }
 
   return (
-
     <div className=''>
       <form onSubmit={addMassage} className=' chat-footer'>
         <div className='chat-footer__taxtera-block'>

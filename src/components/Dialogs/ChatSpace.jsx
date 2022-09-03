@@ -9,11 +9,10 @@ import Spinner from '../Spinner'
 import { useRef } from 'react'
 
 
-const ChatSpace = ({ messages, dialogId }) => {
+const ChatSpace = ({ messages, personal }) => {
 
-  // const userId = useSelector(state => state.user.id)
-  // const userPhoto = useSelector(state => state.user.photo)
   const isLoadid = useSelector(state => state.dialogs.isLoading)
+  const user = useSelector(state => state.user )
   const scrollDialog = useRef(null)
 
   useEffect(() => {
@@ -22,7 +21,6 @@ const ChatSpace = ({ messages, dialogId }) => {
   return (
     <div className='chats__chat-space chat-body'>
       <div ref={scrollDialog} className=' chat-body__wrapper'>
-
         {/* <Message
   className='chat-body__item'
   key={'bn fhf hjv'}
@@ -42,12 +40,13 @@ const ChatSpace = ({ messages, dialogId }) => {
             <Message
               className='chat-body__item'
               key={i.id}
-              id={dialogId}
+              id={i.ovner}
               text={i.text}
-              date='Sat Jul 02 2022 19:54:49 GMT+0300'
-              isMe={i.author === '&' ? true : false}
+              date={i.createdAt}
+              isMe={i.ovner === user.id ? true : false}
               isReaded={true}
-              username={'g'}
+              avatar = {i.ovner === user.id ? user.avatar : personal.avatar}
+              username={i.ovner === user.id ? user.username : personal.username}
               atachments={
                 [
                   {

@@ -104,7 +104,7 @@ const RegistrationForm = () => {
           }
 
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2), 'Check your email')
+            alert(JSON.stringify(values, null, 2), 'Check your email' )
             setSubmitting(false)
           }, 5000)
         }}

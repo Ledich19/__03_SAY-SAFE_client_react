@@ -11,9 +11,9 @@ import peoplesService from './services/personal'
 import dialodsService from './services/dialogs'
 import userService from './services/user'
 import { useNavigate } from 'react-router-dom'
+import messageService from './services/messages'
 
 // import axios from 'axios'
-
 
 // axios
 //   .get('http://localhost:3001/user')
@@ -45,6 +45,7 @@ function App({ store }) {
       { navigate('/personal') }
       peoplesService.setToken(user.token)
       dialodsService.setToken(user.token)
+      messageService.setToken(user.token)
       userService.setToken(user.token)
       getMyInfo()
     }

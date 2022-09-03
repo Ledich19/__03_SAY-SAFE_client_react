@@ -6,7 +6,17 @@ import { BsCheckAll } from 'react-icons/bs'
 import Time from './Time'
 import Avatar from './Avatar'
 
-const Message = ({ id , text, date, avatar, username, isMe, isReaded, className, atachments, isTyping }) => {
+const Message = ({
+  id,
+  text,
+  date,
+  avatar,
+  username,
+  isMe,
+  isReaded,
+  className,
+  atachments,
+  isTyping }) => {
 
   return (
     <div className={`item-messege ${(isMe) ? '_my-messege' : ''} ${(isTyping) ? '_is-typing' : ''} ${className}`}>
@@ -16,9 +26,6 @@ const Message = ({ id , text, date, avatar, username, isMe, isReaded, className,
         username={username}
         className={'item-messege__photo'}
       />
-      {/* <div className='item-messege__photo'>
-        <img src={avatar} alt={`avatar ${username}`} />
-      </div> */}
       <div className='item-message__content'>
 
         <div className='item-messege__text'>
